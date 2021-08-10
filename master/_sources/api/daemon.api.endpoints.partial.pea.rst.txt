@@ -1,0 +1,7 @@
+daemon.api.endpoints.partial.pea 
+=================================
+
+.. automodule:: daemon.api.endpoints.partial.pea
+   :members:
+   :undoc-members:
+   :show-inheritance:

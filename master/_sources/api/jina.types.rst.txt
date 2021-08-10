@@ -8,11 +8,13 @@ jina.types
    jina.types.message
    jina.types.ndarray
    jina.types.request
+   jina.types.routing
    jina.types.score
 
 
 .. toctree::
 
+   jina.types.list
    jina.types.mixin
    jina.types.struct
 

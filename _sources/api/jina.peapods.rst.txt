@@ -8,6 +8,11 @@ jina.peapods
    jina.peapods.runtimes
    jina.peapods.zmq
 
+
+.. toctree::
+
+   jina.peapods.networking
+
 .. automodule:: jina.peapods
    :members:
    :undoc-members:

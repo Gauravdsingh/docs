@@ -3,7 +3,7 @@ jina.parsers
 
 .. toctree::
 
-   jina.parsers.hub
+   jina.parsers.hubble
    jina.parsers.peapods
 
 

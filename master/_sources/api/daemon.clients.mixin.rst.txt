@@ -1,0 +1,7 @@
+daemon.clients.mixin 
+=====================
+
+.. automodule:: daemon.clients.mixin
+   :members:
+   :undoc-members:
+   :show-inheritance:

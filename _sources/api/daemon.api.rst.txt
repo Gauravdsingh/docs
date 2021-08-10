@@ -5,6 +5,11 @@ daemon.api
 
    daemon.api.endpoints
 
+
+.. toctree::
+
+   daemon.api.dependencies
+
 .. automodule:: daemon.api
    :members:
    :undoc-members:

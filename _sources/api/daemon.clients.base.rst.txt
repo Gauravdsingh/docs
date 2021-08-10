@@ -1,0 +1,7 @@
+daemon.clients.base 
+====================
+
+.. automodule:: daemon.clients.base
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -4,8 +4,13 @@ daemon.models
 
 .. toctree::
 
+   daemon.models.base
+   daemon.models.containers
    daemon.models.custom
-   daemon.models.status
+   daemon.models.enums
+   daemon.models.id
+   daemon.models.partial
+   daemon.models.workspaces
 
 .. automodule:: daemon.models
    :members:

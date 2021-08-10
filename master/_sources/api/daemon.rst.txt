@@ -4,14 +4,19 @@ daemon
 .. toctree::
 
    daemon.api
+   daemon.clients
    daemon.models
    daemon.stores
 
 
 .. toctree::
 
+   daemon.dockerize
    daemon.excepts
+   daemon.files
+   daemon.helper
    daemon.parser
+   daemon.tasks
 
 .. automodule:: daemon
    :members:

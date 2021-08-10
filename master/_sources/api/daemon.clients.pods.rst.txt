@@ -1,0 +1,7 @@
+daemon.clients.pods 
+====================
+
+.. automodule:: daemon.clients.pods
+   :members:
+   :undoc-members:
+   :show-inheritance:

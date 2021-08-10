@@ -1,0 +1,7 @@
+daemon.models.enums 
+====================
+
+.. automodule:: daemon.models.enums
+   :members:
+   :undoc-members:
+   :show-inheritance:

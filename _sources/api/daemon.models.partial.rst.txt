@@ -1,0 +1,7 @@
+daemon.models.partial 
+======================
+
+.. automodule:: daemon.models.partial
+   :members:
+   :undoc-members:
+   :show-inheritance:

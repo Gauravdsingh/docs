@@ -1,0 +1,18 @@
+daemon.clients 
+===============
+
+
+.. toctree::
+
+   daemon.clients.base
+   daemon.clients.flows
+   daemon.clients.mixin
+   daemon.clients.peas
+   daemon.clients.pods
+   daemon.clients.workspaces
+
+.. automodule:: daemon.clients
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

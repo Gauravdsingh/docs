@@ -7,8 +7,10 @@ Jina Python API Reference
    jina.executors
    jina.flow
    jina.helloworld
+   jina.hubble
    jina.jaml
    jina.logging
+   jina.math
    jina.optimizers
    jina.parsers
    jina.peapods

@@ -1,0 +1,15 @@
+daemon.api.endpoints.partial 
+=============================
+
+
+.. toctree::
+
+   daemon.api.endpoints.partial.flow
+   daemon.api.endpoints.partial.pea
+   daemon.api.endpoints.partial.pod
+
+.. automodule:: daemon.api.endpoints.partial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

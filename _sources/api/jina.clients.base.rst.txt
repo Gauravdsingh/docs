@@ -1,7 +1,15 @@
 jina.clients.base 
 ==================
 
+
+.. toctree::
+
+   jina.clients.base.grpc
+   jina.clients.base.http
+   jina.clients.base.websocket
+
 .. automodule:: jina.clients.base
    :members:
    :undoc-members:
    :show-inheritance:
+

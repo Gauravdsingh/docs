@@ -1,0 +1,13 @@
+jina.types.routing 
+===================
+
+
+.. toctree::
+
+   jina.types.routing.table
+
+.. automodule:: jina.types.routing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

@@ -1,14 +1,18 @@
 daemon.api.endpoints 
 =====================
 
+.. toctree::
+
+   daemon.api.endpoints.partial
+
 
 .. toctree::
 
-   daemon.api.endpoints.flow
+   daemon.api.endpoints.flows
    daemon.api.endpoints.logs
-   daemon.api.endpoints.pea
-   daemon.api.endpoints.pod
-   daemon.api.endpoints.workspace
+   daemon.api.endpoints.peas
+   daemon.api.endpoints.pods
+   daemon.api.endpoints.workspaces
 
 .. automodule:: daemon.api.endpoints
    :members:

@@ -21,7 +21,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   
-  <title>Overview: module code &mdash; Jina 2.0.0rc5 documentation</title>
+  <title>Overview: module code &mdash; Jina 1.3.1-master documentation</title>
   
 
   
@@ -82,7 +82,7 @@
             
 
           <div class="dropdown version">
-            <button class="dropbtn version">2.0.0rc5</button>
+            <button class="dropbtn version">1.3.1-master</button>
             <div class="dropdown-content">
               
               <a class="dropdown-item" href="/master">master</a>
@@ -259,8 +259,8 @@
 </ul>
 <p class="caption"><span class="caption-text">Indices and Tables</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/all_exec/">List of 123 Executors in Jina</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../chapters/all_driver/">List of 62 Drivers in Jina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/all_exec/">List of 69 Executors in Jina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../chapters/all_driver/">List of 78 Drivers in Jina</a></li>
 </ul>
 
             
@@ -329,25 +329,18 @@
 </div>
 <hr/>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+          <div class="alertbox">
+<div style="background-color: #f8d7da; width: 100%; padding: 1rem; text-align:center; margin-left: auto; margin-right: auto; margin-bottom: 1rem">
+                    <h1 style="color: #721c24"> ⚠️ This documentation is deprecated! ⚠️</h1>
+                    <p>Please visit <a href="https://github.com/jina-ai/jina/">Jina's GitHub repo</a> to find our latest version and docs</p>
+        </div>
+          </div>
            <div itemprop="articleBody">
             
   <h1>All modules for which code is available</h1>
 <ul><li><a href="cli/">cli</a></li>
 <ul><li><a href="cli/api/">cli.api</a></li>
 <li><a href="cli/export/">cli.export</a></li>
-</ul><li><a href="daemon/">daemon</a></li>
-<ul><li><a href="daemon/api/endpoints/">daemon.api.endpoints</a></li>
-<ul><li><a href="daemon/api/endpoints/logs/">daemon.api.endpoints.logs</a></li>
-</ul><li><a href="daemon/excepts/">daemon.excepts</a></li>
-<li><a href="daemon/models/custom/">daemon.models.custom</a></li>
-<li><a href="daemon/models/status/">daemon.models.status</a></li>
-<li><a href="daemon/parser/">daemon.parser</a></li>
-<li><a href="daemon/stores/base/">daemon.stores.base</a></li>
-<li><a href="daemon/stores/flow/">daemon.stores.flow</a></li>
-<li><a href="daemon/stores/helper/">daemon.stores.helper</a></li>
-<li><a href="daemon/stores/pea/">daemon.stores.pea</a></li>
-<li><a href="daemon/stores/pod/">daemon.stores.pod</a></li>
-<li><a href="daemon/stores/workspace/">daemon.stores.workspace</a></li>
 </ul><li><a href="jina/checker/">jina.checker</a></li>
 <li><a href="jina/clients/">jina.clients</a></li>
 <ul><li><a href="jina/clients/asyncio/">jina.clients.asyncio</a></li>
@@ -356,86 +349,30 @@
 <li><a href="jina/clients/request/">jina.clients.request</a></li>
 <ul><li><a href="jina/clients/request/asyncio/">jina.clients.request.asyncio</a></li>
 </ul><li><a href="jina/clients/websocket/">jina.clients.websocket</a></li>
-</ul><li><a href="jina/docker/checker/">jina.docker.checker</a></li>
-<li><a href="jina/docker/helper/">jina.docker.helper</a></li>
-<li><a href="jina/docker/hubio/">jina.docker.hubio</a></li>
-<li><a href="jina/drivers/">jina.drivers</a></li>
-<ul><li><a href="jina/drivers/cache/">jina.drivers.cache</a></li>
-<li><a href="jina/drivers/control/">jina.drivers.control</a></li>
-<li><a href="jina/drivers/convert/">jina.drivers.convert</a></li>
-<li><a href="jina/drivers/craft/">jina.drivers.craft</a></li>
-<li><a href="jina/drivers/delete/">jina.drivers.delete</a></li>
-<li><a href="jina/drivers/encode/">jina.drivers.encode</a></li>
-<li><a href="jina/drivers/evaluate/">jina.drivers.evaluate</a></li>
-<li><a href="jina/drivers/">jina.drivers.index</a></li>
-<li><a href="jina/drivers/multimodal/">jina.drivers.multimodal</a></li>
-<li><a href="jina/drivers/predict/">jina.drivers.predict</a></li>
-<li><a href="jina/drivers/querylang/filter/">jina.drivers.querylang.filter</a></li>
-<li><a href="jina/drivers/querylang/reverse/">jina.drivers.querylang.reverse</a></li>
-<li><a href="jina/drivers/querylang/select/">jina.drivers.querylang.select</a></li>
-<li><a href="jina/drivers/querylang/slice/">jina.drivers.querylang.slice</a></li>
-<li><a href="jina/drivers/querylang/sort/">jina.drivers.querylang.sort</a></li>
-<li><a href="jina/drivers/rank/">jina.drivers.rank</a></li>
-<ul><li><a href="jina/drivers/rank/aggregate/">jina.drivers.rank.aggregate</a></li>
-</ul><li><a href="jina/drivers/reduce/">jina.drivers.reduce</a></li>
-<li><a href="jina/drivers/search/">jina.drivers.search</a></li>
-<li><a href="jina/drivers/segment/">jina.drivers.segment</a></li>
 </ul><li><a href="jina/enums/">jina.enums</a></li>
 <li><a href="jina/excepts/">jina.excepts</a></li>
 <li><a href="jina/executors/">jina.executors</a></li>
-<ul><li><a href="jina/executors/classifiers/">jina.executors.classifiers</a></li>
-<li><a href="jina/executors/clients/">jina.executors.clients</a></li>
-<li><a href="jina/executors/compound/">jina.executors.compound</a></li>
-<li><a href="jina/executors/crafters/">jina.executors.crafters</a></li>
-<li><a href="jina/executors/decorators/">jina.executors.decorators</a></li>
-<li><a href="jina/executors/devices/">jina.executors.devices</a></li>
-<li><a href="jina/executors/encoders/">jina.executors.encoders</a></li>
-<ul><li><a href="jina/executors/encoders/frameworks/">jina.executors.encoders.frameworks</a></li>
-<li><a href="jina/executors/encoders/multimodal/">jina.executors.encoders.multimodal</a></li>
-<li><a href="jina/executors/encoders/numeric/">jina.executors.encoders.numeric</a></li>
-<li><a href="jina/executors/encoders/tfserving/">jina.executors.encoders.tfserving</a></li>
-</ul><li><a href="jina/executors/evaluators/">jina.executors.evaluators</a></li>
-<ul><li><a href="jina/executors/evaluators/embedding/">jina.executors.evaluators.embedding</a></li>
-<ul><li><a href="jina/executors/evaluators/embedding/cosine/">jina.executors.evaluators.embedding.cosine</a></li>
-<li><a href="jina/executors/evaluators/embedding/euclidean/">jina.executors.evaluators.embedding.euclidean</a></li>
-</ul><li><a href="jina/executors/evaluators/rank/">jina.executors.evaluators.rank</a></li>
-<ul><li><a href="jina/executors/evaluators/rank/precision/">jina.executors.evaluators.rank.precision</a></li>
-<li><a href="jina/executors/evaluators/rank/recall/">jina.executors.evaluators.rank.recall</a></li>
-</ul><li><a href="jina/executors/evaluators/running_stats/">jina.executors.evaluators.running_stats</a></li>
-<li><a href="jina/executors/evaluators/text/">jina.executors.evaluators.text</a></li>
-<ul><li><a href="jina/executors/evaluators/text/length/">jina.executors.evaluators.text.length</a></li>
-</ul></ul><li><a href="jina/executors/indexers/">jina.executors.indexers</a></li>
-<ul><li><a href="jina/executors/indexers/cache/">jina.executors.indexers.cache</a></li>
-<li><a href="jina/executors/indexers/keyvalue/">jina.executors.indexers.keyvalue</a></li>
-<li><a href="jina/executors/indexers/vector/">jina.executors.indexers.vector</a></li>
-</ul><li><a href="jina/executors/metas/">jina.executors.metas</a></li>
-<li><a href="jina/executors/rankers/">jina.executors.rankers</a></li>
-<li><a href="jina/executors/requests/">jina.executors.requests</a></li>
-<li><a href="jina/executors/segmenters/">jina.executors.segmenters</a></li>
+<ul><li><a href="jina/executors/decorators/">jina.executors.decorators</a></li>
+<li><a href="jina/executors/metas/">jina.executors.metas</a></li>
 </ul><li><a href="jina/flow/">jina.flow</a></li>
 <ul><li><a href="jina/flow/asyncio/">jina.flow.asyncio</a></li>
 <li><a href="jina/flow/base/">jina.flow.base</a></li>
 <li><a href="jina/flow/builder/">jina.flow.builder</a></li>
-<li><a href="jina/flow/mixin/async_crud/">jina.flow.mixin.async_crud</a></li>
-<li><a href="jina/flow/mixin/crud/">jina.flow.mixin.crud</a></li>
-</ul><li><a href="jina/helloworld/">jina.helloworld</a></li>
-<ul><li><a href="jina/helloworld/chatbot/">jina.helloworld.chatbot</a></li>
-<li><a href="jina/helloworld/components/">jina.helloworld.components</a></li>
-<li><a href="jina/helloworld/helper/">jina.helloworld.helper</a></li>
-</ul><li><a href="jina/helper/">jina.helper</a></li>
+</ul><li><a href="jina/helloworld/chatbot/">jina.helloworld.chatbot</a></li>
+<li><a href="jina/helloworld/fashion/">jina.helloworld.fashion</a></li>
+<li><a href="jina/helloworld/multimodal/">jina.helloworld.multimodal</a></li>
+<li><a href="jina/helper/">jina.helper</a></li>
 <li><a href="jina/importer/">jina.importer</a></li>
 <li><a href="jina/jaml/">jina.jaml</a></li>
 <ul><li><a href="jina/jaml/helper/">jina.jaml.helper</a></li>
 <li><a href="jina/jaml/parsers/">jina.jaml.parsers</a></li>
 <ul><li><a href="jina/jaml/parsers/base/">jina.jaml.parsers.base</a></li>
 <li><a href="jina/jaml/parsers/default/v1/">jina.jaml.parsers.default.v1</a></li>
-<li><a href="jina/jaml/parsers/driver/legacy/">jina.jaml.parsers.driver.legacy</a></li>
 <li><a href="jina/jaml/parsers/executor/legacy/">jina.jaml.parsers.executor.legacy</a></li>
 <li><a href="jina/jaml/parsers/flow/legacy/">jina.jaml.parsers.flow.legacy</a></li>
 <li><a href="jina/jaml/parsers/flow/v1/">jina.jaml.parsers.flow.v1</a></li>
 </ul></ul><li><a href="jina/logging/formatter/">jina.logging.formatter</a></li>
 <li><a href="jina/logging/logger/">jina.logging.logger</a></li>
-<li><a href="jina/logging/pipe/">jina.logging.pipe</a></li>
 <li><a href="jina/logging/profile/">jina.logging.profile</a></li>
 <li><a href="jina/optimizers/">jina.optimizers</a></li>
 <ul><li><a href="jina/optimizers/discovery/">jina.optimizers.discovery</a></li>
@@ -443,19 +380,11 @@
 <li><a href="jina/optimizers/parameters/">jina.optimizers.parameters</a></li>
 </ul><li><a href="jina/parsers/">jina.parsers</a></li>
 <ul><li><a href="jina/parsers/base/">jina.parsers.base</a></li>
-<li><a href="jina/parsers/check/">jina.parsers.check</a></li>
 <li><a href="jina/parsers/client/">jina.parsers.client</a></li>
 <li><a href="jina/parsers/export_api/">jina.parsers.export_api</a></li>
 <li><a href="jina/parsers/flow/">jina.parsers.flow</a></li>
 <li><a href="jina/parsers/helloworld/">jina.parsers.helloworld</a></li>
 <li><a href="jina/parsers/helper/">jina.parsers.helper</a></li>
-<li><a href="jina/parsers/hub/">jina.parsers.hub</a></li>
-<ul><li><a href="jina/parsers/hub/build/">jina.parsers.hub.build</a></li>
-<li><a href="jina/parsers/hub/list/">jina.parsers.hub.list</a></li>
-<li><a href="jina/parsers/hub/login/">jina.parsers.hub.login</a></li>
-<li><a href="jina/parsers/hub/new/">jina.parsers.hub.new</a></li>
-<li><a href="jina/parsers/hub/pushpull/">jina.parsers.hub.pushpull</a></li>
-</ul><li><a href="jina/parsers/logger/">jina.parsers.logger</a></li>
 <li><a href="jina/parsers/optimizer/">jina.parsers.optimizer</a></li>
 <li><a href="jina/parsers/peapods/base/">jina.parsers.peapods.base</a></li>
 <li><a href="jina/parsers/peapods/pea/">jina.parsers.peapods.pea</a></li>
@@ -469,23 +398,22 @@
 </ul><li><a href="jina/peapods/peas/">jina.peapods.peas</a></li>
 <ul><li><a href="jina/peapods/peas/helper/">jina.peapods.peas.helper</a></li>
 </ul><li><a href="jina/peapods/pods/">jina.peapods.pods</a></li>
-<li><a href="jina/peapods/runtimes/">jina.peapods.runtimes</a></li>
-<ul><li><a href="jina/peapods/runtimes/asyncio/base/">jina.peapods.runtimes.asyncio.base</a></li>
-<li><a href="jina/peapods/runtimes/asyncio/grpc/">jina.peapods.runtimes.asyncio.grpc</a></li>
-<ul><li><a href="jina/peapods/runtimes/asyncio/grpc/async_call/">jina.peapods.runtimes.asyncio.grpc.async_call</a></li>
-</ul><li><a href="jina/peapods/runtimes/asyncio/rest/">jina.peapods.runtimes.asyncio.rest</a></li>
-<ul><li><a href="jina/peapods/runtimes/asyncio/rest/app/">jina.peapods.runtimes.asyncio.rest.app</a></li>
-<li><a href="jina/peapods/runtimes/asyncio/rest/models/">jina.peapods.runtimes.asyncio.rest.models</a></li>
-</ul><li><a href="jina/peapods/runtimes/base/">jina.peapods.runtimes.base</a></li>
+<ul><li><a href="jina/peapods/pods/factory/">jina.peapods.pods.factory</a></li>
+</ul><li><a href="jina/peapods/runtimes/">jina.peapods.runtimes</a></li>
+<ul><li><a href="jina/peapods/runtimes/base/">jina.peapods.runtimes.base</a></li>
 <li><a href="jina/peapods/runtimes/container/">jina.peapods.runtimes.container</a></li>
 <li><a href="jina/peapods/runtimes/jinad/">jina.peapods.runtimes.jinad</a></li>
-<ul><li><a href="jina/peapods/runtimes/jinad/client/">jina.peapods.runtimes.jinad.client</a></li>
-</ul><li><a href="jina/peapods/runtimes/ssh/">jina.peapods.runtimes.ssh</a></li>
 <li><a href="jina/peapods/runtimes/zmq/base/">jina.peapods.runtimes.zmq.base</a></li>
 <li><a href="jina/peapods/runtimes/zmq/zed/">jina.peapods.runtimes.zmq.zed</a></li>
 </ul><li><a href="jina/peapods/zmq/">jina.peapods.zmq</a></li>
 <li><a href="jina/proto/jina_pb2_grpc/">jina.proto.jina_pb2_grpc</a></li>
 <li><a href="jina/proto/serializer/">jina.proto.serializer</a></li>
+<li><a href="jina/schemas/">jina.schemas</a></li>
+<li><a href="jina/types/arrays/chunk/">jina.types.arrays.chunk</a></li>
+<li><a href="jina/types/arrays/document/">jina.types.arrays.document</a></li>
+<li><a href="jina/types/arrays/match/">jina.types.arrays.match</a></li>
+<li><a href="jina/types/arrays/querylang/">jina.types.arrays.querylang</a></li>
+<li><a href="jina/types/arrays/traversable/">jina.types.arrays.traversable</a></li>
 <li><a href="jina/types/document/">jina.types.document</a></li>
 <ul><li><a href="jina/types/document/converters/">jina.types.document.converters</a></li>
 <li><a href="jina/types/document/helper/">jina.types.document.helper</a></li>
@@ -502,23 +430,10 @@
 <li><a href="jina/types/ndarray/sparse/scipy/">jina.types.ndarray.sparse.scipy</a></li>
 <li><a href="jina/types/ndarray/sparse/tensorflow/">jina.types.ndarray.sparse.tensorflow</a></li>
 </ul></ul><li><a href="jina/types/querylang/">jina.types.querylang</a></li>
-<ul><li><a href="jina/types/querylang/queryset/dunderkey/">jina.types.querylang.queryset.dunderkey</a></li>
-<li><a href="jina/types/querylang/queryset/helper/">jina.types.querylang.queryset.helper</a></li>
-<li><a href="jina/types/querylang/queryset/lookup/">jina.types.querylang.queryset.lookup</a></li>
-</ul><li><a href="jina/types/request/">jina.types.request</a></li>
-<ul><li><a href="jina/types/request/common/">jina.types.request.common</a></li>
-<li><a href="jina/types/request/control/">jina.types.request.control</a></li>
-<li><a href="jina/types/request/delete/">jina.types.request.delete</a></li>
-<li><a href="jina/types/request/">jina.types.request.index</a></li>
+<li><a href="jina/types/request/">jina.types.request</a></li>
+<ul><li><a href="jina/types/request/control/">jina.types.request.control</a></li>
 <li><a href="jina/types/request/mixin/">jina.types.request.mixin</a></li>
-<li><a href="jina/types/request/search/">jina.types.request.search</a></li>
-<li><a href="jina/types/request/train/">jina.types.request.train</a></li>
-<li><a href="jina/types/request/update/">jina.types.request.update</a></li>
 </ul><li><a href="jina/types/score/">jina.types.score</a></li>
-<li><a href="jina/types/sets/chunk/">jina.types.sets.chunk</a></li>
-<li><a href="jina/types/sets/document/">jina.types.sets.document</a></li>
-<li><a href="jina/types/sets/match/">jina.types.sets.match</a></li>
-<li><a href="jina/types/sets/querylang/">jina.types.sets.querylang</a></li>
 </ul>
 
            </div>
@@ -651,7 +566,7 @@
             
             &copy; Copyright Jina AI Limited. All rights reserved.
             <span class="lastupdated">
-        Last updated on Jun 10, 2021.
+        Last updated on Aug 10, 2021.
       </span>
 
         </p>

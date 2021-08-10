@@ -1,0 +1,13 @@
+jina.peapods.runtimes.gateway.websocket 
+========================================
+
+
+.. toctree::
+
+   jina.peapods.runtimes.gateway.websocket.app
+
+.. automodule:: jina.peapods.runtimes.gateway.websocket
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

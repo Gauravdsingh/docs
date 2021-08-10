@@ -1,0 +1,7 @@
+jina.types.arrays.bpm 
+======================
+
+.. automodule:: jina.types.arrays.bpm
+   :members:
+   :undoc-members:
+   :show-inheritance:

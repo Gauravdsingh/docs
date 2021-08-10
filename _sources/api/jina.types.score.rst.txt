@@ -1,6 +1,11 @@
 jina.types.score 
 =================
 
+
+.. toctree::
+
+   jina.types.score.map
+
 .. automodule:: jina.types.score
    :members:
    :undoc-members:

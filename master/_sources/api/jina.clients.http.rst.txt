@@ -1,0 +1,7 @@
+jina.clients.http 
+==================
+
+.. automodule:: jina.clients.http
+   :members:
+   :undoc-members:
+   :show-inheritance:

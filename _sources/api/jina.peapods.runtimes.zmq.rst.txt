@@ -4,6 +4,7 @@ jina.peapods.runtimes.zmq
 
 .. toctree::
 
+   jina.peapods.runtimes.zmq.asyncio
    jina.peapods.runtimes.zmq.base
    jina.peapods.runtimes.zmq.zed
 

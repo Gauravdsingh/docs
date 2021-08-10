@@ -1,0 +1,7 @@
+daemon.clients.peas 
+====================
+
+.. automodule:: daemon.clients.peas
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,2687 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="X-UA-Compatible" content="IE=edge">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@JinaAI_">
+<meta name="twitter:creator" content="@JinaAI_">
+<meta name="description"
+      content="Jina is the cloud-native neural search solution powered by the state-of-the-art AI and deep learning">
+<meta property="og:title" content="Jina Documentation">
+<meta property="og:description"
+      content="Jina is the cloud-native neural search solution powered by the state-of-the-art AI and deep learning">
+<meta property="og:url" content="https://opensource.jina.ai">
+<meta property="og:image" content="../../_static/banner.png">
+<meta property="og:type" content="website">
+<link rel="icon" href="../../_static/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+  <title>jina.clients.base.grpc &mdash; Jina 1.3.1-master documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/main.css" type="text/css" />
+
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex/" />
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="next" title="jina.clients.base.http" href="../jina.clients.base.http/" />
+    <link rel="prev" title="jina.clients.base" href="../jina.clients.base/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+  <div id="showhide-navbar-btn" onclick="showhide_navbar();"></div>
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="https://docs.jina.ai">
+          
+
+          
+            
+            <img src="../../_static/jina-prod-logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+
+          <div class="dropdown version">
+            <button class="dropbtn version">1.3.1-master</button>
+            <div class="dropdown-content">
+              
+              <a class="dropdown-item" href="/master">master</a>
+              
+              <a class="dropdown-item" href="/v1.3.0">1.3.0</a>
+              
+              <a class="dropdown-item" href="/v1.2.4">1.2.4</a>
+              
+              <a class="dropdown-item" href="/v1.2.2">1.2.2</a>
+              
+              <a class="dropdown-item" href="/v1.2.1">1.2.1</a>
+              
+              <a class="dropdown-item" href="/v1.1.9">1.1.9</a>
+              
+              <a class="dropdown-item" href="/v1.1.8">1.1.8</a>
+              
+              <a class="dropdown-item" href="/v1.1.7">1.1.7</a>
+              
+              <a class="dropdown-item" href="/v1.1.6">1.1.6</a>
+              
+              <a class="dropdown-item" href="/v1.1.5">1.1.5</a>
+              
+              <a class="dropdown-item" href="/v1.1.4">1.1.4</a>
+              
+              <a class="dropdown-item" href="/v1.1.3">1.1.3</a>
+              
+              <a class="dropdown-item" href="/v1.1.2">1.1.2</a>
+              
+              <a class="dropdown-item" href="/v1.1.1">1.1.1</a>
+              
+              <a class="dropdown-item" href="/v1.1.0">1.1.0</a>
+              
+              <a class="dropdown-item" href="/v1.0.9">1.0.9</a>
+              
+              <a class="dropdown-item" href="/v1.0.7">1.0.7</a>
+              
+              <a class="dropdown-item" href="/v1.0.6">1.0.6</a>
+              
+              <a class="dropdown-item" href="/v1.0.5">1.0.5</a>
+              
+              <a class="dropdown-item" href="/v1.0.4">1.0.4</a>
+              
+              <a class="dropdown-item" href="/v1.0.3">1.0.3</a>
+              
+              <a class="dropdown-item" href="/v1.0.2">1.0.2</a>
+              
+              <a class="dropdown-item" href="/v1.0.1">1.0.1</a>
+              
+              <a class="dropdown-item" href="/v1.0.0">1.0.0</a>
+              
+              <a class="dropdown-item" href="/v0.9.8">0.9.8</a>
+              
+              <a class="dropdown-item" href="/v0.9.7">0.9.7</a>
+              
+              <a class="dropdown-item" href="/v0.9.6">0.9.6</a>
+              
+              <a class="dropdown-item" href="/v0.9.5">0.9.5</a>
+              
+              <a class="dropdown-item" href="/v0.9.4">0.9.4</a>
+              
+              <a class="dropdown-item" href="/v0.9.34">0.9.34</a>
+              
+              <a class="dropdown-item" href="/v0.9.33">0.9.33</a>
+              
+              <a class="dropdown-item" href="/v0.9.3">0.9.3</a>
+              
+              <a class="dropdown-item" href="/v0.9.28">0.9.28</a>
+              
+              <a class="dropdown-item" href="/v0.9.23">0.9.23</a>
+              
+              <a class="dropdown-item" href="/v0.9.22">0.9.22</a>
+              
+              <a class="dropdown-item" href="/v0.9.21">0.9.21</a>
+              
+              <a class="dropdown-item" href="/v0.9.20">0.9.20</a>
+              
+              <a class="dropdown-item" href="/v0.9.19">0.9.19</a>
+              
+              <a class="dropdown-item" href="/v0.9.18">0.9.18</a>
+              
+              <a class="dropdown-item" href="/v0.9.17">0.9.17</a>
+              
+              <a class="dropdown-item" href="/v0.9.16">0.9.16</a>
+              
+              <a class="dropdown-item" href="/v0.9.15">0.9.15</a>
+              
+              <a class="dropdown-item" href="/v0.9.14">0.9.14</a>
+              
+              <a class="dropdown-item" href="/v0.9.13">0.9.13</a>
+              
+              <a class="dropdown-item" href="/v0.9.12">0.9.12</a>
+              
+              <a class="dropdown-item" href="/v0.9.11">0.9.11</a>
+              
+              <a class="dropdown-item" href="/v0.9.10">0.9.10</a>
+              
+              <a class="dropdown-item" href="/v0.9.9">0.9.9</a>
+              
+              <a class="dropdown-item" href="/v0.9.8">0.9.8</a>
+              
+              <a class="dropdown-item" href="/v0.9.7">0.9.7</a>
+              
+              <a class="dropdown-item" href="/v0.9.6">0.9.6</a>
+              
+              <a class="dropdown-item" href="/v0.9.5">0.9.5</a>
+              
+              <a class="dropdown-item" href="/v0.9.3">0.9.3</a>
+              
+              <a class="dropdown-item" href="/v0.9.2">0.9.2</a>
+              
+              <a class="dropdown-item" href="/v0.9.1">0.9.1</a>
+              
+              <a class="dropdown-item" href="/v0.9.0">0.9.0</a>
+              
+              <a class="dropdown-item" href="/v0.8.22">0.8.22</a>
+              
+              <a class="dropdown-item" href="/v0.8.21">0.8.21</a>
+              
+            </div>
+          </div>
+            
+          
+
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Jina Core</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/core/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/core/guides/">Developer Guides</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../chapters/core/api_references/">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/rest/">RESTful CRUD Operations with Jina</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/yaml/">Jina YAML Syntax Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/api_schema/">Jina API Schema for 3rd-Party Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/cli/">Jina Command-Line Interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/proto/">Jina Protobuf Specification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../chapters/daemon/">Jina Daemon API Specification</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../jina/">Jina Python API Reference</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../jina.clients/">jina.clients</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="../jina.clients.base/">jina.clients.base</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.request/">jina.clients.request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.grpc/">jina.clients.grpc</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.helper/">jina.clients.helper</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.http/">jina.clients.http</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.mixin/">jina.clients.mixin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../jina.clients.websocket/">jina.clients.websocket</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.executors/">jina.executors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.flow/">jina.flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.helloworld/">jina.helloworld</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.hubble/">jina.hubble</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.jaml/">jina.jaml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.logging/">jina.logging</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.math/">jina.math</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.optimizers/">jina.optimizers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.parsers/">jina.parsers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.peapods/">jina.peapods</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.proto/">jina.proto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.schemas/">jina.schemas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.types/">jina.types</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.checker/">jina.checker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.enums/">jina.enums</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.excepts/">jina.excepts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.helper/">jina.helper</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../jina.importer/">jina.importer</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Jina Dashboard</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/dashboard/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/dashboard/guides/">Developer Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jina Hub</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/hub/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/hub/guides/">Developer Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/hub/api_references/">API Reference</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Jina Box</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/box/introduction/">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/box/guides/">Developer Guides</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Glossary</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/glossary/">Glossary</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Community</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/CONTRIBUTING/">Contributing to Jina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/CONTRIBUTING/#join-us-on-slack">Join Us on Slack!</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/RELEASE/">Release &amp; Version Identifier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/CHANGELOG/">Change Logs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/jep/">Jina Enhancement Proposals (JEP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/faq/dev/">FAQ for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/faq/user/">FAQ for End-Users</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/docstring/">Docstring Guide</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Indices and Tables</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/all_exec/">List of 69 Executors in Jina</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../chapters/all_driver/">List of 78 Drivers in Jina</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../">Jina</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content style-external-links">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation" class="nav-bar-header">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../../chapters/core/api_references/">API Reference</a> &raquo;</li>
+        
+          <li><a href="../jina/">Jina Python API Reference</a> &raquo;</li>
+        
+          <li><a href="../jina.clients/">jina.clients</a> &raquo;</li>
+        
+          <li><a href="../jina.clients.base/">jina.clients.base</a> &raquo;</li>
+        
+      <li>jina.clients.base.grpc</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  
+<div role="search" class="nav-bar-search">
+  <form id="rtd-search-form" class="wy-form doc-searchbox" action="../../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs (Press / to focus)" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+</div>
+<hr/>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+          <div class="alertbox">
+<div style="background-color: #f8d7da; width: 100%; padding: 1rem; text-align:center; margin-left: auto; margin-right: auto; margin-bottom: 1rem">
+                    <h1 style="color: #721c24"> ⚠️ This documentation is deprecated! ⚠️</h1>
+                    <p>Please visit <a href="https://github.com/jina-ai/jina/">Jina's GitHub repo</a> to find our latest version and docs</p>
+        </div>
+          </div>
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-jina.clients.base.grpc">
+<span id="jina-clients-base-grpc"></span><h1>jina.clients.base.grpc<a class="headerlink" href="#module-jina.clients.base.grpc" title="Permalink to this headline">¶</a></h1>
+<p>gRPC’s Python API.</p>
+<dl class="py exception">
+<dt id="jina.clients.base.grpc.FutureTimeoutError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">FutureTimeoutError</span></code><a class="headerlink" href="#jina.clients.base.grpc.FutureTimeoutError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Indicates that a method call on a Future timed out.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="jina.clients.base.grpc.FutureCancelledError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">FutureCancelledError</span></code><a class="headerlink" href="#jina.clients.base.grpc.FutureCancelledError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Indicates that the computation underlying a Future was cancelled.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Future">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Future</span></code><a class="headerlink" href="#jina.clients.base.grpc.Future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A representation of a computation in another control flow.</p>
+<p>Computations represented by a Future may be yet to be begun,
+may be ongoing, or may have already completed.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.cancel">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">cancel</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Attempts to cancel the computation.</p>
+<p>This method does not block.</p>
+<dl>
+<dt>Returns:</dt><dd><p>bool:
+Returns True if the computation was canceled.</p>
+<p>Returns False under all other circumstances, for example:</p>
+<ol class="arabic simple">
+<li><p>computation has begun and could not be canceled.</p></li>
+<li><p>computation has finished</p></li>
+<li><dl class="simple">
+<dt>computation is scheduled for execution and it is impossible</dt><dd><p>to determine its state without blocking.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.cancelled">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">cancelled</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.cancelled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes whether the computation was cancelled.</p>
+<p>This method does not block.</p>
+<dl>
+<dt>Returns:</dt><dd><p>bool:
+Returns True if the computation was cancelled before its result became
+available.</p>
+<p>Returns False under all other circumstances, for example:</p>
+<ol class="arabic simple">
+<li><p>computation was not cancelled.</p></li>
+<li><p>computation’s result is available.</p></li>
+</ol>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.running">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">running</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.running" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes whether the computation is taking place.</p>
+<p>This method does not block.</p>
+<dl>
+<dt>Returns:</dt><dd><p>Returns True if the computation is scheduled for execution or
+currently executing.</p>
+<p>Returns False if the computation already executed or was cancelled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.done">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">done</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.done" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes whether the computation has taken place.</p>
+<p>This method does not block.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool:
+Returns True if the computation already executed or was cancelled.
+Returns False if the computation is scheduled for execution or
+currently executing.
+This is exactly opposite of the running() method’s result.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.result">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">result</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the result of the computation or raises its exception.</p>
+<p>This method may return immediately or may block.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>timeout: The length of time in seconds to wait for the computation to</dt><dd><p>finish or be cancelled. If None, the call will block until the
+computations’s termination.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The return value of the computation.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>FutureTimeoutError: If a timeout value is passed and the computation</dt><dd><p>does not terminate within the allotted time.</p>
+</dd>
+</dl>
+<p>FutureCancelledError: If the computation was cancelled.
+Exception: If the computation raised an exception, this call will</p>
+<blockquote>
+<div><p>raise the same exception.</p>
+</div></blockquote>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.exception">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">exception</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.exception" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the exception raised by the computation.</p>
+<p>This method may return immediately or may block.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>timeout: The length of time in seconds to wait for the computation to</dt><dd><p>terminate or be cancelled. If None, the call will block until the
+computations’s termination.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The exception raised by the computation, or None if the computation
+did not raise an exception.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>FutureTimeoutError: If a timeout value is passed and the computation</dt><dd><p>does not terminate within the allotted time.</p>
+</dd>
+</dl>
+<p>FutureCancelledError: If the computation was cancelled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.traceback">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">traceback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.traceback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access the traceback of the exception raised by the computation.</p>
+<p>This method may return immediately or may block.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>timeout: The length of time in seconds to wait for the computation</dt><dd><p>to terminate or be cancelled. If None, the call will block until
+the computation’s termination.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The traceback of the exception raised by the computation, or None
+if the computation did not raise an exception.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>FutureTimeoutError: If a timeout value is passed and the computation</dt><dd><p>does not terminate within the allotted time.</p>
+</dd>
+</dl>
+<p>FutureCancelledError: If the computation was cancelled.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Future.add_done_callback">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_done_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fn</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Future.add_done_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a function to be called at completion of the computation.</p>
+<p>The callback will be passed this Future object describing the outcome
+of the computation.  Callbacks will be invoked after the future is
+terminated, whether successfully or not.</p>
+<p>If the computation has already completed, the callback will be called
+immediately.</p>
+<p>Exceptions raised in the callback will be logged at ERROR level, but
+will not terminate any threads of execution.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>fn: A callable taking this Future object as its single parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ChannelConnectivity">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ChannelConnectivity</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Mirrors grpc_connectivity_state in the gRPC Core.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>IDLE: The channel is idle.
+CONNECTING: The channel is connecting.
+READY: The channel is ready to conduct RPCs.
+TRANSIENT_FAILURE: The channel has seen a failure from which it expects</p>
+<blockquote>
+<div><p>to recover.</p>
+</div></blockquote>
+<p>SHUTDOWN: The channel has seen a failure from which it cannot recover.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.ChannelConnectivity.IDLE">
+<code class="sig-name descname"><span class="pre">IDLE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(0,</span> <span class="pre">'idle')</span></em><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity.IDLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.ChannelConnectivity.CONNECTING">
+<code class="sig-name descname"><span class="pre">CONNECTING</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">'connecting')</span></em><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity.CONNECTING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.ChannelConnectivity.READY">
+<code class="sig-name descname"><span class="pre">READY</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(2,</span> <span class="pre">'ready')</span></em><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity.READY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.ChannelConnectivity.TRANSIENT_FAILURE">
+<code class="sig-name descname"><span class="pre">TRANSIENT_FAILURE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(3,</span> <span class="pre">'transient</span> <span class="pre">failure')</span></em><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity.TRANSIENT_FAILURE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.ChannelConnectivity.SHUTDOWN">
+<code class="sig-name descname"><span class="pre">SHUTDOWN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(4,</span> <span class="pre">'shutdown')</span></em><a class="headerlink" href="#jina.clients.base.grpc.ChannelConnectivity.SHUTDOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.StatusCode">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">StatusCode</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.StatusCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Mirrors grpc_status_code in the gRPC Core.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>OK: Not an error; returned on success
+CANCELLED: The operation was cancelled (typically by the caller).
+UNKNOWN: Unknown error.
+INVALID_ARGUMENT: Client specified an invalid argument.
+DEADLINE_EXCEEDED: Deadline expired before operation could complete.
+NOT_FOUND: Some requested entity (e.g., file or directory) was not found.
+ALREADY_EXISTS: Some entity that we attempted to create (e.g., file or directory)</p>
+<blockquote>
+<div><p>already exists.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>PERMISSION_DENIED: The caller does not have permission to execute the specified</dt><dd><p>operation.</p>
+</dd>
+<dt>UNAUTHENTICATED: The request does not have valid authentication credentials for the</dt><dd><p>operation.</p>
+</dd>
+<dt>RESOURCE_EXHAUSTED: Some resource has been exhausted, perhaps a per-user quota, or</dt><dd><p>perhaps the entire file system is out of space.</p>
+</dd>
+<dt>FAILED_PRECONDITION: Operation was rejected because the system is not in a state</dt><dd><p>required for the operation’s execution.</p>
+</dd>
+<dt>ABORTED: The operation was aborted, typically due to a concurrency issue</dt><dd><p>like sequencer check failures, transaction aborts, etc.</p>
+</dd>
+</dl>
+<p>UNIMPLEMENTED: Operation is not implemented or not supported/enabled in this service.
+INTERNAL: Internal errors.  Means some invariants expected by underlying</p>
+<blockquote>
+<div><p>system has been broken.</p>
+</div></blockquote>
+<p>UNAVAILABLE: The service is currently unavailable.
+DATA_LOSS: Unrecoverable data loss or corruption.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.OK">
+<code class="sig-name descname"><span class="pre">OK</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(0,</span> <span class="pre">'ok')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.OK" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.CANCELLED">
+<code class="sig-name descname"><span class="pre">CANCELLED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">'cancelled')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.CANCELLED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.UNKNOWN">
+<code class="sig-name descname"><span class="pre">UNKNOWN</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(2,</span> <span class="pre">'unknown')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.INVALID_ARGUMENT">
+<code class="sig-name descname"><span class="pre">INVALID_ARGUMENT</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(3,</span> <span class="pre">'invalid</span> <span class="pre">argument')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.INVALID_ARGUMENT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.DEADLINE_EXCEEDED">
+<code class="sig-name descname"><span class="pre">DEADLINE_EXCEEDED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(4,</span> <span class="pre">'deadline</span> <span class="pre">exceeded')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.DEADLINE_EXCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.NOT_FOUND">
+<code class="sig-name descname"><span class="pre">NOT_FOUND</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(5,</span> <span class="pre">'not</span> <span class="pre">found')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.NOT_FOUND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.ALREADY_EXISTS">
+<code class="sig-name descname"><span class="pre">ALREADY_EXISTS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(6,</span> <span class="pre">'already</span> <span class="pre">exists')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.ALREADY_EXISTS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.PERMISSION_DENIED">
+<code class="sig-name descname"><span class="pre">PERMISSION_DENIED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(7,</span> <span class="pre">'permission</span> <span class="pre">denied')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.PERMISSION_DENIED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.RESOURCE_EXHAUSTED">
+<code class="sig-name descname"><span class="pre">RESOURCE_EXHAUSTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(8,</span> <span class="pre">'resource</span> <span class="pre">exhausted')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.RESOURCE_EXHAUSTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.FAILED_PRECONDITION">
+<code class="sig-name descname"><span class="pre">FAILED_PRECONDITION</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(9,</span> <span class="pre">'failed</span> <span class="pre">precondition')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.FAILED_PRECONDITION" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.ABORTED">
+<code class="sig-name descname"><span class="pre">ABORTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(10,</span> <span class="pre">'aborted')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.ABORTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.OUT_OF_RANGE">
+<code class="sig-name descname"><span class="pre">OUT_OF_RANGE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(11,</span> <span class="pre">'out</span> <span class="pre">of</span> <span class="pre">range')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.OUT_OF_RANGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.UNIMPLEMENTED">
+<code class="sig-name descname"><span class="pre">UNIMPLEMENTED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(12,</span> <span class="pre">'unimplemented')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.UNIMPLEMENTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.INTERNAL">
+<code class="sig-name descname"><span class="pre">INTERNAL</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(13,</span> <span class="pre">'internal')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.INTERNAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.UNAVAILABLE">
+<code class="sig-name descname"><span class="pre">UNAVAILABLE</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(14,</span> <span class="pre">'unavailable')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.UNAVAILABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.DATA_LOSS">
+<code class="sig-name descname"><span class="pre">DATA_LOSS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(15,</span> <span class="pre">'data</span> <span class="pre">loss')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.DATA_LOSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.StatusCode.UNAUTHENTICATED">
+<code class="sig-name descname"><span class="pre">UNAUTHENTICATED</span></code><em class="property"> <span class="pre">=</span> <span class="pre">(16,</span> <span class="pre">'unauthenticated')</span></em><a class="headerlink" href="#jina.clients.base.grpc.StatusCode.UNAUTHENTICATED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Status">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Status</span></code><a class="headerlink" href="#jina.clients.base.grpc.Status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Describes the status of an RPC.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>code: A StatusCode object to be sent to the client.
+details: A UTF-8-encodable string to be sent to the client upon</p>
+<blockquote>
+<div><p>termination of the RPC.</p>
+</div></blockquote>
+<p>trailing_metadata: The trailing <span class="xref std std-term">metadata</span> in the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py exception">
+<dt id="jina.clients.base.grpc.RpcError">
+<em class="property"><span class="pre">exception</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">RpcError</span></code><a class="headerlink" href="#jina.clients.base.grpc.RpcError" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></p>
+<p>Raised by the gRPC library to indicate non-OK-status RPC termination.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.RpcContext">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">RpcContext</span></code><a class="headerlink" href="#jina.clients.base.grpc.RpcContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides RPC-related information and action.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.RpcContext.is_active">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">is_active</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.RpcContext.is_active" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes whether the RPC is active or has terminated.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>bool:
+True if RPC is active, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.RpcContext.time_remaining">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">time_remaining</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.RpcContext.time_remaining" title="Permalink to this definition">¶</a></dt>
+<dd><p>Describes the length of allowed time remaining for the RPC.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A nonnegative float indicating the length of allowed time in seconds
+remaining for the RPC to complete before it is considered to have
+timed out, or None if no deadline was specified for the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.RpcContext.cancel">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">cancel</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.RpcContext.cancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancels the RPC.</p>
+<p>Idempotent and has no effect if the RPC has already terminated.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.RpcContext.add_callback">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_callback</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.RpcContext.add_callback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers a callback to be called on RPC termination.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>callback: A no-parameter callable to be called on RPC termination.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>True if the callback was added and will be called later; False if</dt><dd><p>the callback was not added and will not be called (because the RPC
+already terminated or some other reason).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Call">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Call</span></code><a class="headerlink" href="#jina.clients.base.grpc.Call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">grpc.RpcContext</span></code></p>
+<p>Invocation-side utility object for an RPC.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Call.initial_metadata">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">initial_metadata</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Call.initial_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the initial metadata sent by the server.</p>
+<p>This method blocks until the value is available.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The initial <span class="xref std std-term">metadata</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Call.trailing_metadata">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">trailing_metadata</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Call.trailing_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the trailing metadata sent by the server.</p>
+<p>This method blocks until the value is available.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The trailing <span class="xref std std-term">metadata</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Call.code">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">code</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Call.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the status code sent by the server.</p>
+<p>This method blocks until the value is available.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The StatusCode value for the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Call.details">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">details</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Call.details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the details sent by the server.</p>
+<p>This method blocks until the value is available.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The details string of the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ChannelCredentials">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ChannelCredentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ChannelCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An encapsulation of the data required to create a secure Channel.</p>
+<p>This class has no supported interface - it exists to define the type of its
+instances and its instances exist to be passed to other functions. For
+example, ssl_channel_credentials returns an instance of this class and
+secure_channel requires an instance of this class.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.CallCredentials">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">CallCredentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.CallCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An encapsulation of the data required to assert an identity over a call.</p>
+<p>A CallCredentials has to be used with secure Channel, otherwise the
+metadata will not be transmitted to the server.</p>
+<p>A CallCredentials may be composed with ChannelCredentials to always assert
+identity for every call over that Channel.</p>
+<p>This class has no supported interface - it exists to define the type of its
+instances and its instances exist to be passed to other functions.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.AuthMetadataContext">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">AuthMetadataContext</span></code><a class="headerlink" href="#jina.clients.base.grpc.AuthMetadataContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Provides information to call credentials metadata plugins.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>service_url: A string URL of the service being called into.
+method_name: A string of the fully qualified method name being called.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.AuthMetadataPluginCallback">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">AuthMetadataPluginCallback</span></code><a class="headerlink" href="#jina.clients.base.grpc.AuthMetadataPluginCallback" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Callback object received by a metadata plugin.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.AuthMetadataPlugin">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">AuthMetadataPlugin</span></code><a class="headerlink" href="#jina.clients.base.grpc.AuthMetadataPlugin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A specification for custom authentication.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Compression">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Compression</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Compression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.IntEnum</span></code></p>
+<p>Indicates the compression method to be used for an RPC.</p>
+<p>This enumeration is part of an EXPERIMENTAL API.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>NoCompression: Do not use compression algorithm.
+Deflate: Use “Deflate” compression algorithm.
+Gzip: Use “Gzip” compression algorithm.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.Compression.NoCompression">
+<code class="sig-name descname"><span class="pre">NoCompression</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#jina.clients.base.grpc.Compression.NoCompression" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.Compression.Deflate">
+<code class="sig-name descname"><span class="pre">Deflate</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#jina.clients.base.grpc.Compression.Deflate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.Compression.Gzip">
+<code class="sig-name descname"><span class="pre">Gzip</span></code><em class="property"> <span class="pre">=</span> <span class="pre">2</span></em><a class="headerlink" href="#jina.clients.base.grpc.Compression.Gzip" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ClientCallDetails">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ClientCallDetails</span></code><a class="headerlink" href="#jina.clients.base.grpc.ClientCallDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Describes an RPC to be invoked.</p>
+<dl>
+<dt>Attributes:</dt><dd><p>method: The method name of the RPC.
+timeout: An optional duration of time in seconds to allow for the RPC.
+metadata: Optional <span class="xref std std-term">metadata</span> to be transmitted to</p>
+<blockquote>
+<div><p>the service-side of the RPC.</p>
+</div></blockquote>
+<p>credentials: An optional CallCredentials for the RPC.
+wait_for_ready: This is an EXPERIMENTAL argument. An optional</p>
+<blockquote>
+<div><p>flag to enable <span class="xref std std-term">wait_for_ready</span> mechanism.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ServerCertificateConfiguration">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ServerCertificateConfiguration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">certificate_configuration</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServerCertificateConfiguration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A certificate configuration for use with an SSL-enabled Server.</p>
+<p>Instances of this class can be returned in the certificate configuration
+fetching callback.</p>
+<p>This class has no supported interface – it exists to define the
+type of its instances and its instances exist to be passed to
+other functions.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ServerCredentials">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ServerCredentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServerCredentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An encapsulation of the data required to open a secure port on a Server.</p>
+<p>This class has no supported interface - it exists to define the type of its
+instances and its instances exist to be passed to other functions.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.LocalConnectionType">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">LocalConnectionType</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.LocalConnectionType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></p>
+<p>Types of local connection for local credential creation.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>UDS: Unix domain socket connections
+LOCAL_TCP: Local TCP connections.</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.LocalConnectionType.UDS">
+<code class="sig-name descname"><span class="pre">UDS</span></code><em class="property"> <span class="pre">=</span> <span class="pre">0</span></em><a class="headerlink" href="#jina.clients.base.grpc.LocalConnectionType.UDS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="jina.clients.base.grpc.LocalConnectionType.LOCAL_TCP">
+<code class="sig-name descname"><span class="pre">LOCAL_TCP</span></code><em class="property"> <span class="pre">=</span> <span class="pre">1</span></em><a class="headerlink" href="#jina.clients.base.grpc.LocalConnectionType.LOCAL_TCP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.UnaryUnaryMultiCallable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">UnaryUnaryMultiCallable</span></code><a class="headerlink" href="#jina.clients.base.grpc.UnaryUnaryMultiCallable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords invoking a unary-unary RPC from client-side.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.UnaryUnaryMultiCallable.with_call">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">with_call</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.UnaryUnaryMultiCallable.with_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously invokes the underlying RPC.</p>
+<dl>
+<dt>Args:</dt><dd><p>request: The request value for the RPC.
+timeout: An optional durating of time in seconds to allow for</p>
+<blockquote>
+<div><p>the RPC.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>metadata: Optional <span class="xref std std-term">metadata</span> to be transmitted to the</dt><dd><p>service-side of the RPC.</p>
+</dd>
+<dt>credentials: An optional CallCredentials for the RPC. Only valid for</dt><dd><p>secure Channel.</p>
+</dd>
+<dt>wait_for_ready: This is an EXPERIMENTAL argument. An optional</dt><dd><p>flag to enable <span class="xref std std-term">wait_for_ready</span> mechanism.</p>
+</dd>
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The response value for the RPC and a Call value for the RPC.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>RpcError: Indicating that the RPC terminated with non-OK status. The</dt><dd><p>raised RpcError will also be a Call for the RPC affording the RPC’s
+metadata, status code, and details.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.UnaryUnaryMultiCallable.future">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">future</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.UnaryUnaryMultiCallable.future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronously invokes the underlying RPC.</p>
+<dl>
+<dt>Args:</dt><dd><p>request: The request value for the RPC.
+timeout: An optional duration of time in seconds to allow for</p>
+<blockquote>
+<div><p>the RPC.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>metadata: Optional <span class="xref std std-term">metadata</span> to be transmitted to the</dt><dd><p>service-side of the RPC.</p>
+</dd>
+<dt>credentials: An optional CallCredentials for the RPC. Only valid for</dt><dd><p>secure Channel.</p>
+</dd>
+<dt>wait_for_ready: This is an EXPERIMENTAL argument. An optional</dt><dd><p>flag to enable <span class="xref std std-term">wait_for_ready</span> mechanism.</p>
+</dd>
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and a Future.
+In the event of RPC completion, the return Call-Future’s result
+value will be the response message of the RPC.
+Should the event terminate with non-OK status,
+the returned Call-Future’s exception value will be an RpcError.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.UnaryStreamMultiCallable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">UnaryStreamMultiCallable</span></code><a class="headerlink" href="#jina.clients.base.grpc.UnaryStreamMultiCallable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords invoking a unary-stream RPC from client-side.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.StreamUnaryMultiCallable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">StreamUnaryMultiCallable</span></code><a class="headerlink" href="#jina.clients.base.grpc.StreamUnaryMultiCallable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords invoking a stream-unary RPC from client-side.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.StreamUnaryMultiCallable.with_call">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">with_call</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_iterator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.StreamUnaryMultiCallable.with_call" title="Permalink to this definition">¶</a></dt>
+<dd><p>Synchronously invokes the underlying RPC on the client.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>request_iterator: An iterator that yields request values for</dt><dd><p>the RPC.</p>
+</dd>
+<dt>timeout: An optional duration of time in seconds to allow for</dt><dd><p>the RPC. If None, the timeout is considered infinite.</p>
+</dd>
+<dt>metadata: Optional <span class="xref std std-term">metadata</span> to be transmitted to the</dt><dd><p>service-side of the RPC.</p>
+</dd>
+<dt>credentials: An optional CallCredentials for the RPC. Only valid for</dt><dd><p>secure Channel.</p>
+</dd>
+<dt>wait_for_ready: This is an EXPERIMENTAL argument. An optional</dt><dd><p>flag to enable <span class="xref std std-term">wait_for_ready</span> mechanism.</p>
+</dd>
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>The response value for the RPC and a Call object for the RPC.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>RpcError: Indicating that the RPC terminated with non-OK status. The</dt><dd><p>raised RpcError will also be a Call for the RPC affording the RPC’s
+metadata, status code, and details.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.StreamUnaryMultiCallable.future">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">future</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request_iterator</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wait_for_ready</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.StreamUnaryMultiCallable.future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Asynchronously invokes the underlying RPC on the client.</p>
+<dl>
+<dt>Args:</dt><dd><p>request_iterator: An iterator that yields request values for the RPC.
+timeout: An optional duration of time in seconds to allow for</p>
+<blockquote>
+<div><p>the RPC. If None, the timeout is considered infinite.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>metadata: Optional <span class="xref std std-term">metadata</span> to be transmitted to the</dt><dd><p>service-side of the RPC.</p>
+</dd>
+<dt>credentials: An optional CallCredentials for the RPC. Only valid for</dt><dd><p>secure Channel.</p>
+</dd>
+<dt>wait_for_ready: This is an EXPERIMENTAL argument. An optional</dt><dd><p>flag to enable <span class="xref std std-term">wait_for_ready</span> mechanism.</p>
+</dd>
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and a Future.
+In the event of RPC completion, the return Call-Future’s result value
+will be the response message of the RPC. Should the event terminate
+with non-OK status, the returned Call-Future’s exception value will
+be an RpcError.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.StreamStreamMultiCallable">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">StreamStreamMultiCallable</span></code><a class="headerlink" href="#jina.clients.base.grpc.StreamStreamMultiCallable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords invoking a stream-stream RPC on client-side.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.UnaryUnaryClientInterceptor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">UnaryUnaryClientInterceptor</span></code><a class="headerlink" href="#jina.clients.base.grpc.UnaryUnaryClientInterceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords intercepting unary-unary invocations.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.UnaryUnaryClientInterceptor.intercept_unary_unary">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">intercept_unary_unary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_call_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.UnaryUnaryClientInterceptor.intercept_unary_unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts a unary-unary invocation asynchronously.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>continuation: A function that proceeds with the invocation by</dt><dd><p>executing the next interceptor in chain or invoking the
+actual RPC on the underlying Channel. It is the interceptor’s
+responsibility to call it if it decides to move the RPC forward.
+The interceptor can use
+<cite>response_future = continuation(client_call_details, request)</cite>
+to continue with the RPC. <cite>continuation</cite> returns an object that is
+both a Call for the RPC and a Future. In the event of RPC
+completion, the return Call-Future’s result value will be
+the response message of the RPC. Should the event terminate
+with non-OK status, the returned Call-Future’s exception value
+will be an RpcError.</p>
+</dd>
+<dt>client_call_details: A ClientCallDetails object describing the</dt><dd><p>outgoing RPC.</p>
+</dd>
+</dl>
+<p>request: The request value for the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and a Future.
+In the event of RPC completion, the return Call-Future’s
+result value will be the response message of the RPC.
+Should the event terminate with non-OK status, the returned
+Call-Future’s exception value will be an RpcError.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.UnaryStreamClientInterceptor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">UnaryStreamClientInterceptor</span></code><a class="headerlink" href="#jina.clients.base.grpc.UnaryStreamClientInterceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords intercepting unary-stream invocations.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.UnaryStreamClientInterceptor.intercept_unary_stream">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">intercept_unary_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_call_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.UnaryStreamClientInterceptor.intercept_unary_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts a unary-stream invocation.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>continuation: A function that proceeds with the invocation by</dt><dd><p>executing the next interceptor in chain or invoking the
+actual RPC on the underlying Channel. It is the interceptor’s
+responsibility to call it if it decides to move the RPC forward.
+The interceptor can use
+<cite>response_iterator = continuation(client_call_details, request)</cite>
+to continue with the RPC. <cite>continuation</cite> returns an object that is
+both a Call for the RPC and an iterator for response values.
+Drawing response values from the returned Call-iterator may
+raise RpcError indicating termination of the RPC with non-OK
+status.</p>
+</dd>
+<dt>client_call_details: A ClientCallDetails object describing the</dt><dd><p>outgoing RPC.</p>
+</dd>
+</dl>
+<p>request: The request value for the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and an iterator of
+response values. Drawing response values from the returned
+Call-iterator may raise RpcError indicating termination of
+the RPC with non-OK status. This object <em>should</em> also fulfill the
+Future interface, though it may not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.StreamUnaryClientInterceptor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">StreamUnaryClientInterceptor</span></code><a class="headerlink" href="#jina.clients.base.grpc.StreamUnaryClientInterceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords intercepting stream-unary invocations.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.StreamUnaryClientInterceptor.intercept_stream_unary">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">intercept_stream_unary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_call_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_iterator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.StreamUnaryClientInterceptor.intercept_stream_unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts a stream-unary invocation asynchronously.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>continuation: A function that proceeds with the invocation by</dt><dd><p>executing the next interceptor in chain or invoking the
+actual RPC on the underlying Channel. It is the interceptor’s
+responsibility to call it if it decides to move the RPC forward.
+The interceptor can use
+<cite>response_future = continuation(client_call_details, request_iterator)</cite>
+to continue with the RPC. <cite>continuation</cite> returns an object that is
+both a Call for the RPC and a Future. In the event of RPC completion,
+the return Call-Future’s result value will be the response message
+of the RPC. Should the event terminate with non-OK status, the
+returned Call-Future’s exception value will be an RpcError.</p>
+</dd>
+<dt>client_call_details: A ClientCallDetails object describing the</dt><dd><p>outgoing RPC.</p>
+</dd>
+</dl>
+<p>request_iterator: An iterator that yields request values for the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and a Future.
+In the event of RPC completion, the return Call-Future’s
+result value will be the response message of the RPC.
+Should the event terminate with non-OK status, the returned
+Call-Future’s exception value will be an RpcError.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.StreamStreamClientInterceptor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">StreamStreamClientInterceptor</span></code><a class="headerlink" href="#jina.clients.base.grpc.StreamStreamClientInterceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords intercepting stream-stream invocations.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.StreamStreamClientInterceptor.intercept_stream_stream">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">intercept_stream_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client_call_details</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_iterator</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.StreamStreamClientInterceptor.intercept_stream_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts a stream-stream invocation.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>continuation: A function that proceeds with the invocation by</dt><dd><p>executing the next interceptor in chain or invoking the
+actual RPC on the underlying Channel. It is the interceptor’s
+responsibility to call it if it decides to move the RPC forward.
+The interceptor can use
+<cite>response_iterator = continuation(client_call_details, request_iterator)</cite>
+to continue with the RPC. <cite>continuation</cite> returns an object that is
+both a Call for the RPC and an iterator for response values.
+Drawing response values from the returned Call-iterator may
+raise RpcError indicating termination of the RPC with non-OK
+status.</p>
+</dd>
+<dt>client_call_details: A ClientCallDetails object describing the</dt><dd><p>outgoing RPC.</p>
+</dd>
+</dl>
+<p>request_iterator: An iterator that yields request values for the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An object that is both a Call for the RPC and an iterator of
+response values. Drawing response values from the returned
+Call-iterator may raise RpcError indicating termination of
+the RPC with non-OK status. This object <em>should</em> also fulfill the
+Future interface, though it may not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Channel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Channel</span></code><a class="headerlink" href="#jina.clients.base.grpc.Channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords RPC invocation via generic methods on client-side.</p>
+<p>Channel objects implement the Context Manager type, although they need not
+support being entered and exited multiple times.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.subscribe">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">subscribe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">try_to_connect</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.subscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Subscribe to this Channel’s connectivity state machine.</p>
+<p>A Channel may be in any of the states described by ChannelConnectivity.
+This method allows application to monitor the state transitions.
+The typical use case is to debug or gain better visibility into gRPC
+runtime’s state.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>callback: A callable to be invoked with ChannelConnectivity argument.</dt><dd><p>ChannelConnectivity describes current state of the channel.
+The callable will be invoked immediately upon subscription
+and again for every change to ChannelConnectivity until it
+is unsubscribed or this Channel object goes out of scope.</p>
+</dd>
+<dt>try_to_connect: A boolean indicating whether or not this Channel</dt><dd><p>should attempt to connect immediately. If set to False, gRPC
+runtime decides when to connect.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.unsubscribe">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">unsubscribe</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.unsubscribe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unsubscribes a subscribed callback from this Channel’s connectivity.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>callback: A callable previously registered with this Channel from
+having been passed to its “subscribe” method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.unary_unary">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">unary_unary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.unary_unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a UnaryUnaryMultiCallable for a unary-unary method.</p>
+<dl>
+<dt>Args:</dt><dd><p>method: The name of the RPC method.
+request_serializer: Optional <span class="xref std std-term">serializer</span> for serializing the request</p>
+<blockquote>
+<div><p>message. Request goes unserialized in case None is passed.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>response_deserializer: Optional <span class="xref std std-term">deserializer</span> for deserializing the</dt><dd><p>response message. Response goes undeserialized in case None
+is passed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A UnaryUnaryMultiCallable value for the named unary-unary method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.unary_stream">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">unary_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.unary_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a UnaryStreamMultiCallable for a unary-stream method.</p>
+<dl>
+<dt>Args:</dt><dd><p>method: The name of the RPC method.
+request_serializer: Optional <span class="xref std std-term">serializer</span> for serializing the request</p>
+<blockquote>
+<div><p>message. Request goes unserialized in case None is passed.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>response_deserializer: Optional <span class="xref std std-term">deserializer</span> for deserializing the</dt><dd><p>response message. Response goes undeserialized in case None is
+passed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A UnaryStreamMultiCallable value for the name unary-stream method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.stream_unary">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">stream_unary</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.stream_unary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a StreamUnaryMultiCallable for a stream-unary method.</p>
+<dl>
+<dt>Args:</dt><dd><p>method: The name of the RPC method.
+request_serializer: Optional <span class="xref std std-term">serializer</span> for serializing the request</p>
+<blockquote>
+<div><p>message. Request goes unserialized in case None is passed.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>response_deserializer: Optional <span class="xref std std-term">deserializer</span> for deserializing the</dt><dd><p>response message. Response goes undeserialized in case None is
+passed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A StreamUnaryMultiCallable value for the named stream-unary method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.stream_stream">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">stream_stream</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">method</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.stream_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a StreamStreamMultiCallable for a stream-stream method.</p>
+<dl>
+<dt>Args:</dt><dd><p>method: The name of the RPC method.
+request_serializer: Optional <span class="xref std std-term">serializer</span> for serializing the request</p>
+<blockquote>
+<div><p>message. Request goes unserialized in case None is passed.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>response_deserializer: Optional <span class="xref std std-term">deserializer</span> for deserializing the</dt><dd><p>response message. Response goes undeserialized in case None
+is passed.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A StreamStreamMultiCallable value for the named stream-stream method.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Channel.close">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">close</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Channel.close" title="Permalink to this definition">¶</a></dt>
+<dd><p>Closes this Channel and releases all resources held by it.</p>
+<p>Closing the Channel will immediately terminate all RPCs active with the
+Channel and it is not valid to invoke new RPCs with the Channel.</p>
+<p>This method is idempotent.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ServicerContext">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ServicerContext</span></code><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">grpc.RpcContext</span></code></p>
+<p>A context object passed to method implementations.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.invocation_metadata">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">invocation_metadata</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.invocation_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the metadata from the sent by the client.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The invocation <span class="xref std std-term">metadata</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.peer">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">peer</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.peer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Identifies the peer that invoked the RPC being serviced.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A string identifying the peer that invoked the RPC being serviced.
+The string format is determined by gRPC runtime.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.peer_identities">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">peer_identities</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.peer_identities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets one or more peer identity(s).</p>
+<p>Equivalent to
+servicer_context.auth_context().get(servicer_context.peer_identity_key())</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>An iterable of the identities, or None if the call is not
+authenticated. Each identity is returned as a raw bytes type.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.peer_identity_key">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">peer_identity_key</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.peer_identity_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>The auth property used to identify the peer.</p>
+<p>For example, “x509_common_name” or “x509_subject_alternative_name” are
+used to identify an SSL peer.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The auth property (string) that indicates the
+peer identity, or None if the call is not authenticated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.auth_context">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">auth_context</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.auth_context" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the auth context for the call.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A map of strings to an iterable of bytes for each auth property.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.set_compression">
+<code class="sig-name descname"><span class="pre">set_compression</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">compression</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.set_compression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the compression algorithm to be used for the entire call.</p>
+<p>This is an EXPERIMENTAL method.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.send_initial_metadata">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">send_initial_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_metadata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.send_initial_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sends the initial metadata value to the client.</p>
+<p>This method need not be called by implementations if they have no
+metadata to add to what the gRPC runtime will transmit.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>initial_metadata: The initial <span class="xref std std-term">metadata</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.set_trailing_metadata">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">set_trailing_metadata</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trailing_metadata</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.set_trailing_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the trailing metadata for the RPC.</p>
+<p>Sets the trailing metadata to be sent upon completion of the RPC.</p>
+<p>If this method is invoked multiple times throughout the lifetime of an
+RPC, the value supplied in the final invocation will be the value sent
+over the wire.</p>
+<p>This method need not be called by implementations if they have no
+metadata to add to what the gRPC runtime will transmit.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>trailing_metadata: The trailing <span class="xref std std-term">metadata</span>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.trailing_metadata">
+<code class="sig-name descname"><span class="pre">trailing_metadata</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.trailing_metadata" title="Permalink to this definition">¶</a></dt>
+<dd><p>Access value to be used as trailing metadata upon RPC completion.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The trailing <span class="xref std std-term">metadata</span> for the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.abort">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">abort</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">details</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.abort" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises an exception to terminate the RPC with a non-OK status.</p>
+<p>The code and details passed as arguments will supercede any existing
+ones.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>code: A StatusCode object to be sent to the client.</dt><dd><p>It must not be StatusCode.OK.</p>
+</dd>
+<dt>details: A UTF-8-encodable string to be sent to the client upon</dt><dd><p>termination of the RPC.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Exception: An exception is always raised to signal the abortion the</dt><dd><p>RPC to the gRPC runtime.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.abort_with_status">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">abort_with_status</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">status</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.abort_with_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises an exception to terminate the RPC with a non-OK status.</p>
+<p>The status passed as argument will supercede any existing status code,
+status message and trailing metadata.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>status: A grpc.Status object. The status code in it must not be</dt><dd><p>StatusCode.OK.</p>
+</dd>
+</dl>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>Exception: An exception is always raised to signal the abortion the</dt><dd><p>RPC to the gRPC runtime.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.set_code">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">set_code</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.set_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value to be used as status code upon RPC completion.</p>
+<p>This method need not be called by method implementations if they wish
+the gRPC runtime to determine the status code of the RPC.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>code: A StatusCode object to be sent to the client.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.set_details">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">set_details</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">details</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.set_details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the value to be used as detail string upon RPC completion.</p>
+<p>This method need not be called by method implementations if they have
+no details to transmit.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>details: A UTF-8-encodable string to be sent to the client upon</dt><dd><p>termination of the RPC.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.code">
+<code class="sig-name descname"><span class="pre">code</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the value to be used as status code upon RPC completion.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The StatusCode value for the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.details">
+<code class="sig-name descname"><span class="pre">details</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.details" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accesses the value to be used as detail string upon RPC completion.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The details string of the RPC.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServicerContext.disable_next_message_compression">
+<code class="sig-name descname"><span class="pre">disable_next_message_compression</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServicerContext.disable_next_message_compression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disables compression for the next response message.</p>
+<p>This is an EXPERIMENTAL method.</p>
+<p>This method will override any compression configuration set during
+server creation or set on the call.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.RpcMethodHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">RpcMethodHandler</span></code><a class="headerlink" href="#jina.clients.base.grpc.RpcMethodHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An implementation of a single RPC method.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><dl class="simple">
+<dt>request_streaming: Whether the RPC supports exactly one request message</dt><dd><p>or any arbitrary number of request messages.</p>
+</dd>
+<dt>response_streaming: Whether the RPC supports exactly one response message</dt><dd><p>or any arbitrary number of response messages.</p>
+</dd>
+<dt>request_deserializer: A callable <span class="xref std std-term">deserializer</span> that accepts a byte string and</dt><dd><p>returns an object suitable to be passed to this object’s business
+logic, or None to indicate that this object’s business logic should be
+passed the raw request bytes.</p>
+</dd>
+<dt>response_serializer: A callable <span class="xref std std-term">serializer</span> that accepts an object produced</dt><dd><p>by this object’s business logic and returns a byte string, or None to
+indicate that the byte strings produced by this object’s business logic
+should be transmitted on the wire as they are.</p>
+</dd>
+<dt>unary_unary: This object’s application-specific business logic as a</dt><dd><p>callable value that takes a request value and a ServicerContext object
+and returns a response value. Only non-None if both request_streaming
+and response_streaming are False.</p>
+</dd>
+<dt>unary_stream: This object’s application-specific business logic as a</dt><dd><p>callable value that takes a request value and a ServicerContext object
+and returns an iterator of response values. Only non-None if
+request_streaming is False and response_streaming is True.</p>
+</dd>
+<dt>stream_unary: This object’s application-specific business logic as a</dt><dd><p>callable value that takes an iterator of request values and a
+ServicerContext object and returns a response value. Only non-None if
+request_streaming is True and response_streaming is False.</p>
+</dd>
+<dt>stream_stream: This object’s application-specific business logic as a</dt><dd><p>callable value that takes an iterator of request values and a
+ServicerContext object and returns an iterator of response values.
+Only non-None if request_streaming and response_streaming are both
+True.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.HandlerCallDetails">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">HandlerCallDetails</span></code><a class="headerlink" href="#jina.clients.base.grpc.HandlerCallDetails" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Describes an RPC that has just arrived for service.</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>method: The method name of the RPC.
+invocation_metadata: The <span class="xref std std-term">metadata</span> sent by the client.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.GenericRpcHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">GenericRpcHandler</span></code><a class="headerlink" href="#jina.clients.base.grpc.GenericRpcHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An implementation of arbitrarily many RPC methods.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.GenericRpcHandler.service">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">service</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">handler_call_details</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.GenericRpcHandler.service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the handler for servicing the RPC.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>handler_call_details: A HandlerCallDetails describing the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler with which the RPC may be serviced if the
+implementation chooses to service this RPC, or None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ServiceRpcHandler">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ServiceRpcHandler</span></code><a class="headerlink" href="#jina.clients.base.grpc.ServiceRpcHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">grpc.GenericRpcHandler</span></code></p>
+<p>An implementation of RPC methods belonging to a service.</p>
+<p>A service handles RPC methods with structured names of the form
+‘/Service.Name/Service.Method’, where ‘Service.Name’ is the value
+returned by service_name(), and ‘Service.Method’ is the method
+name.  A service can have multiple method names, but only a single
+service name.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServiceRpcHandler.service_name">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">service_name</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServiceRpcHandler.service_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns this service’s name.</p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The service name.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.Server">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">Server</span></code><a class="headerlink" href="#jina.clients.base.grpc.Server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Services RPCs.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.add_generic_rpc_handlers">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_generic_rpc_handlers</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generic_rpc_handlers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.add_generic_rpc_handlers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Registers GenericRpcHandlers with this Server.</p>
+<p>This method is only safe to call before the server is started.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>generic_rpc_handlers: An iterable of GenericRpcHandlers that will be
+used to service RPCs.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.add_insecure_port">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_insecure_port</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.add_insecure_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens an insecure port for accepting RPCs.</p>
+<p>This method may only be called before starting the server.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>address: The address for which to open a port. If the port is 0,</dt><dd><p>or not specified in the address, then gRPC runtime will choose a port.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>An integer port on which server will accept RPC requests.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.add_secure_port">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">add_secure_port</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">server_credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.add_secure_port" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens a secure port for accepting RPCs.</p>
+<p>This method may only be called before starting the server.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>address: The address for which to open a port.</dt><dd><p>if the port is 0, or not specified in the address, then gRPC
+runtime will choose a port.</p>
+</dd>
+</dl>
+<p>server_credentials: A ServerCredentials object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An integer port on which server will accept RPC requests.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.start">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">start</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.start" title="Permalink to this definition">¶</a></dt>
+<dd><p>Starts this Server.</p>
+<p>This method may only be called once. (i.e. it is not idempotent).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.stop">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">stop</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grace</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.stop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stops this Server.</p>
+<p>This method immediately stop service of new RPCs in all cases.</p>
+<p>If a grace period is specified, this method returns immediately
+and all RPCs active at the end of the grace period are aborted.
+If a grace period is not specified (by passing None for <cite>grace</cite>),
+all existing RPCs are aborted immediately and this method
+blocks until the last RPC handler terminates.</p>
+<p>This method is idempotent and may be called at any time.
+Passing a smaller grace value in a subsequent call will have
+the effect of stopping the Server sooner (passing None will
+have the effect of stopping the server immediately). Passing
+a larger grace value in a subsequent call <em>will not</em> have the
+effect of stopping the server later (i.e. the most restrictive
+grace value is used).</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>grace: A duration of time in seconds or None.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A threading.Event that will be set when this Server has completely
+stopped, i.e. when running RPCs either complete or are aborted and
+all handlers have terminated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="jina.clients.base.grpc.Server.wait_for_termination">
+<code class="sig-name descname"><span class="pre">wait_for_termination</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.Server.wait_for_termination" title="Permalink to this definition">¶</a></dt>
+<dd><p>Block current thread until the server stops.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<p>The wait will not consume computational resources during blocking, and
+it will block until one of the two following conditions are met:</p>
+<ol class="arabic simple">
+<li><p>The server is stopped or terminated;</p></li>
+<li><p>A timeout occurs if timeout is not <cite>None</cite>.</p></li>
+</ol>
+<p>The timeout argument works in the same way as <cite>threading.Event.wait()</cite>.
+<a class="reference external" href="https://docs.python.org/3/library/threading.html#threading.Event.wait">https://docs.python.org/3/library/threading.html#threading.Event.wait</a></p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>timeout: A floating point number specifying a timeout for the</dt><dd><p>operation in seconds.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A bool indicates if the operation times out.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="jina.clients.base.grpc.ServerInterceptor">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ServerInterceptor</span></code><a class="headerlink" href="#jina.clients.base.grpc.ServerInterceptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Affords intercepting incoming RPCs on the service-side.</p>
+<dl class="py method">
+<dt id="jina.clients.base.grpc.ServerInterceptor.intercept_service">
+<em class="property"><span class="pre">abstract</span> </em><code class="sig-name descname"><span class="pre">intercept_service</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">continuation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handler_call_details</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ServerInterceptor.intercept_service" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts incoming RPCs before handing them over to a handler.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>continuation: A function that takes a HandlerCallDetails and</dt><dd><p>proceeds to invoke the next interceptor in the chain, if any,
+or the RPC handler lookup logic, with the call details passed
+as an argument, and returns an RpcMethodHandler instance if
+the RPC is considered serviced, or None otherwise.</p>
+</dd>
+</dl>
+<p>handler_call_details: A HandlerCallDetails describing the RPC.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler with which the RPC may be serviced if the
+interceptor chooses to service this RPC, or None otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.unary_unary_rpc_method_handler">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">unary_unary_rpc_method_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">behavior</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.unary_unary_rpc_method_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an RpcMethodHandler for a unary-unary RPC method.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>behavior: The implementation of an RPC that accepts one request</dt><dd><p>and returns one response.</p>
+</dd>
+</dl>
+<p>request_deserializer: An optional <span class="xref std std-term">deserializer</span> for request deserialization.
+response_serializer: An optional <span class="xref std std-term">serializer</span> for response serialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler object that is typically used by grpc.Server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.unary_stream_rpc_method_handler">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">unary_stream_rpc_method_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">behavior</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.unary_stream_rpc_method_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an RpcMethodHandler for a unary-stream RPC method.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>behavior: The implementation of an RPC that accepts one request</dt><dd><p>and returns an iterator of response values.</p>
+</dd>
+</dl>
+<p>request_deserializer: An optional <span class="xref std std-term">deserializer</span> for request deserialization.
+response_serializer: An optional <span class="xref std std-term">serializer</span> for response serialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler object that is typically used by grpc.Server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.stream_unary_rpc_method_handler">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">stream_unary_rpc_method_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">behavior</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.stream_unary_rpc_method_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an RpcMethodHandler for a stream-unary RPC method.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>behavior: The implementation of an RPC that accepts an iterator of</dt><dd><p>request values and returns a single response value.</p>
+</dd>
+</dl>
+<p>request_deserializer: An optional <span class="xref std std-term">deserializer</span> for request deserialization.
+response_serializer: An optional <span class="xref std std-term">serializer</span> for response serialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler object that is typically used by grpc.Server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.stream_stream_rpc_method_handler">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">stream_stream_rpc_method_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">behavior</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">request_deserializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response_serializer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.stream_stream_rpc_method_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an RpcMethodHandler for a stream-stream RPC method.</p>
+<dl>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>behavior: The implementation of an RPC that accepts an iterator of</dt><dd><p>request values and returns an iterator of response values.</p>
+</dd>
+</dl>
+<p>request_deserializer: An optional <span class="xref std std-term">deserializer</span> for request deserialization.
+response_serializer: An optional <span class="xref std std-term">serializer</span> for response serialization.</p>
+</dd>
+<dt>Returns:</dt><dd><p>An RpcMethodHandler object that is typically used by grpc.Server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.method_handlers_generic_handler">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">method_handlers_generic_handler</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">method_handlers</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.method_handlers_generic_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a GenericRpcHandler from RpcMethodHandlers.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>service: The name of the service that is implemented by the</dt><dd><p>method_handlers.</p>
+</dd>
+<dt>method_handlers: A dictionary that maps method names to corresponding</dt><dd><p>RpcMethodHandler.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A GenericRpcHandler. This is typically added to the grpc.Server object
+with add_generic_rpc_handlers() before starting the server.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.ssl_channel_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ssl_channel_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">root_certificates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">private_key</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_chain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ssl_channel_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ChannelCredentials for use with an SSL-enabled Channel.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>root_certificates: The PEM-encoded root certificates as a byte string,</dt><dd><p>or None to retrieve them from a default location chosen by gRPC
+runtime.</p>
+</dd>
+<dt>private_key: The PEM-encoded private key as a byte string, or None if no</dt><dd><p>private key should be used.</p>
+</dd>
+<dt>certificate_chain: The PEM-encoded certificate chain as a byte string</dt><dd><p>to use or None if no certificate chain should be used.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ChannelCredentials for use with an SSL-enabled Channel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.metadata_call_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">metadata_call_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata_plugin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.metadata_call_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct CallCredentials from an AuthMetadataPlugin.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>metadata_plugin: An AuthMetadataPlugin to use for authentication.
+name: An optional name for the plugin.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A CallCredentials.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.access_token_call_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">access_token_call_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">access_token</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.access_token_call_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct CallCredentials from an access token.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>access_token: A string to place directly in the http request</dt><dd><p>authorization header, for example
+“authorization: Bearer &lt;access_token&gt;”.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A CallCredentials.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.composite_call_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">composite_call_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">call_credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.composite_call_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose multiple CallCredentials to make a new CallCredentials.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p><a href="#id1"><span class="problematic" id="id2">*</span></a>call_credentials: At least two CallCredentials objects.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A CallCredentials object composed of the given CallCredentials objects.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.composite_channel_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">composite_channel_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_credentials</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">call_credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.composite_channel_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compose a ChannelCredentials and one or more CallCredentials objects.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>channel_credentials: A ChannelCredentials object.
+<a href="#id3"><span class="problematic" id="id4">*</span></a>call_credentials: One or more CallCredentials objects.</p>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>A ChannelCredentials composed of the given ChannelCredentials and</dt><dd><p>CallCredentials objects.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.local_channel_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">local_channel_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">local_connect_type=&lt;LocalConnectionType.LOCAL_TCP:</span> <span class="pre">1&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.local_channel_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a local ChannelCredentials used for local connections.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<p>Local credentials are used by local TCP endpoints (e.g. localhost:10000)
+also UDS connections.</p>
+<p>The connections created by local channel credentials are not
+encrypted, but will be checked if they are local or not.
+The UDS connections are considered secure by providing peer authentication
+and data confidentiality while TCP connections are considered insecure.</p>
+<p>It is allowed to transmit call credentials over connections created by
+local channel credentials.</p>
+<p>Local channel credentials are useful for 1) eliminating insecure_channel usage;
+2) enable unit testing for call credentials without setting up secrets.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>local_connect_type: Local connection type (either</dt><dd><p>grpc.LocalConnectionType.UDS or grpc.LocalConnectionType.LOCAL_TCP)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ChannelCredentials for use with a local Channel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.local_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">local_server_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="pre">local_connect_type=&lt;LocalConnectionType.LOCAL_TCP:</span> <span class="pre">1&gt;</span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.local_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a local ServerCredentials used for local connections.</p>
+<p>This is an EXPERIMENTAL API.</p>
+<p>Local credentials are used by local TCP endpoints (e.g. localhost:10000)
+also UDS connections.</p>
+<p>The connections created by local server credentials are not
+encrypted, but will be checked if they are local or not.
+The UDS connections are considered secure by providing peer authentication
+and data confidentiality while TCP connections are considered insecure.</p>
+<p>It is allowed to transmit call credentials over connections created by local
+server credentials.</p>
+<p>Local server credentials are useful for 1) eliminating insecure_channel usage;
+2) enable unit testing for call credentials without setting up secrets.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>local_connect_type: Local connection type (either</dt><dd><p>grpc.LocalConnectionType.UDS or grpc.LocalConnectionType.LOCAL_TCP)</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ServerCredentials for use with a local Server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.alts_channel_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">alts_channel_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">service_accounts</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.alts_channel_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ChannelCredentials for use with an ALTS-enabled Channel.</p>
+<p>This is an EXPERIMENTAL API.
+ALTS credentials API can only be used in GCP environment as it relies on
+handshaker service being available. For more info about ALTS see
+<a class="reference external" href="https://cloud.google.com/security/encryption-in-transit/application-layer-transport-security">https://cloud.google.com/security/encryption-in-transit/application-layer-transport-security</a></p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>service_accounts: A list of server identities accepted by the client.</dt><dd><p>If target service accounts are provided and none of them matches the
+peer identity of the server, handshake will fail. The arg can be empty
+if the client does not have any information about trusted server
+identity.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ChannelCredentials for use with an ALTS-enabled Channel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.alts_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">alts_server_credentials</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.alts_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ServerCredentials for use with an ALTS-enabled connection.</p>
+<p>This is an EXPERIMENTAL API.
+ALTS credentials API can only be used in GCP environment as it relies on
+handshaker service being available. For more info about ALTS see
+<a class="reference external" href="https://cloud.google.com/security/encryption-in-transit/application-layer-transport-security">https://cloud.google.com/security/encryption-in-transit/application-layer-transport-security</a></p>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A ServerCredentials for use with an ALTS-enabled Server</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.ssl_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ssl_server_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">private_key_certificate_chain_pairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_certificates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_client_auth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ssl_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ServerCredentials for use with an SSL-enabled Server.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>private_key_certificate_chain_pairs: A list of pairs of the form</dt><dd><p>[PEM-encoded private key, PEM-encoded certificate chain].</p>
+</dd>
+<dt>root_certificates: An optional byte string of PEM-encoded client root</dt><dd><p>certificates that the server will use to verify client authentication.
+If omitted, require_client_auth must also be False.</p>
+</dd>
+<dt>require_client_auth: A boolean indicating whether or not to require</dt><dd><p>clients to be authenticated. May only be True if root_certificates
+is not None.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ServerCredentials for use with an SSL-enabled Server. Typically, this
+object is an argument to add_secure_port() method during server setup.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.ssl_server_certificate_configuration">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">ssl_server_certificate_configuration</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">private_key_certificate_chain_pairs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root_certificates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.ssl_server_certificate_configuration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ServerCertificateConfiguration for use with a Server.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>private_key_certificate_chain_pairs: A collection of pairs of</dt><dd><p>the form [PEM-encoded private key, PEM-encoded certificate
+chain].</p>
+</dd>
+<dt>root_certificates: An optional byte string of PEM-encoded client root</dt><dd><p>certificates that the server will use to verify client authentication.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><dl class="simple">
+<dt>A ServerCertificateConfiguration that can be returned in the certificate</dt><dd><p>configuration fetching callback.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.dynamic_ssl_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">dynamic_ssl_server_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">initial_certificate_configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">certificate_configuration_fetcher</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">require_client_authentication</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.dynamic_ssl_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a ServerCredentials for use with an SSL-enabled Server.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>initial_certificate_configuration (ServerCertificateConfiguration): The</dt><dd><p>certificate configuration with which the server will be initialized.</p>
+</dd>
+<dt>certificate_configuration_fetcher (callable): A callable that takes no</dt><dd><p>arguments and should return a ServerCertificateConfiguration to
+replace the server’s current certificate, or None for no change
+(i.e., the server will continue its current certificate
+config). The library will call this callback on <em>every</em> new
+client connection before starting the TLS handshake with the
+client, thus allowing the user application to optionally
+return a new ServerCertificateConfiguration that the server will then
+use for the handshake.</p>
+</dd>
+<dt>require_client_authentication: A boolean indicating whether or not to</dt><dd><p>require clients to be authenticated.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A ServerCredentials.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.channel_ready_future">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">channel_ready_future</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.channel_ready_future" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Future that tracks when a Channel is ready.</p>
+<p>Cancelling the Future does not affect the channel’s state machine.
+It merely decouples the Future from channel state machine.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><p>channel: A Channel object.</p>
+</dd>
+<dt>Returns:</dt><dd><p>A Future object that matures when the channel connectivity is
+ChannelConnectivity.READY.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.insecure_channel">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">insecure_channel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.insecure_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates an insecure Channel to a server.</p>
+<p>The returned Channel is thread-safe.</p>
+<dl>
+<dt>Args:</dt><dd><p>target: The server address
+options: An optional list of key-value pairs (<span class="xref std std-term">channel_arguments</span></p>
+<blockquote>
+<div><p>in gRPC Core runtime) to configure the channel.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>compression: An optional value indicating the compression method to be</dt><dd><p>used over the lifetime of the channel. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A Channel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.secure_channel">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">secure_channel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">credentials</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.secure_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a secure Channel to a server.</p>
+<p>The returned Channel is thread-safe.</p>
+<dl>
+<dt>Args:</dt><dd><p>target: The server address.
+credentials: A ChannelCredentials instance.
+options: An optional list of key-value pairs (<span class="xref std std-term">channel_arguments</span></p>
+<blockquote>
+<div><p>in gRPC Core runtime) to configure the channel.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>compression: An optional value indicating the compression method to be</dt><dd><p>used over the lifetime of the channel. This is an EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A Channel.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.intercept_channel">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">intercept_channel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">interceptors</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.intercept_channel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Intercepts a channel through a set of interceptors.</p>
+<dl>
+<dt>Args:</dt><dd><p>channel: A Channel.
+interceptors: Zero or more objects of type</p>
+<blockquote>
+<div><p>UnaryUnaryClientInterceptor,
+UnaryStreamClientInterceptor,
+StreamUnaryClientInterceptor, or
+StreamStreamClientInterceptor.
+Interceptors are given control in the order they are listed.</p>
+</div></blockquote>
+</dd>
+<dt>Returns:</dt><dd><p>A Channel that intercepts each invocation via the provided interceptors.</p>
+</dd>
+<dt>Raises:</dt><dd><dl class="simple">
+<dt>TypeError: If interceptor does not derive from any of</dt><dd><p>UnaryUnaryClientInterceptor,
+UnaryStreamClientInterceptor,
+StreamUnaryClientInterceptor, or
+StreamStreamClientInterceptor.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.server">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">server</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">thread_pool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">handlers</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interceptors</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">options</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">maximum_concurrent_rpcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.server" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a Server with which RPCs can be serviced.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>thread_pool: A futures.ThreadPoolExecutor to be used by the Server</dt><dd><p>to execute RPC handlers.</p>
+</dd>
+<dt>handlers: An optional list of GenericRpcHandlers used for executing RPCs.</dt><dd><p>More handlers may be added by calling add_generic_rpc_handlers any time
+before the server is started.</p>
+</dd>
+<dt>interceptors: An optional list of ServerInterceptor objects that observe</dt><dd><p>and optionally manipulate the incoming RPCs before handing them over to
+handlers. The interceptors are given control in the order they are
+specified. This is an EXPERIMENTAL API.</p>
+</dd>
+<dt>options: An optional list of key-value pairs (<span class="xref std std-term">channel_arguments</span> in gRPC runtime)</dt><dd><p>to configure the channel.</p>
+</dd>
+<dt>maximum_concurrent_rpcs: The maximum number of concurrent RPCs this server</dt><dd><p>will service before returning RESOURCE_EXHAUSTED status, or None to
+indicate no limit.</p>
+</dd>
+<dt>compression: An element of grpc.compression, e.g.</dt><dd><p>grpc.compression.Gzip. This compression algorithm will be used for the
+lifetime of the server unless overridden. This is an EXPERIMENTAL option.</p>
+</dd>
+<dt>xds: If set to true, retrieves server configuration via xDS. This is an</dt><dd><p>EXPERIMENTAL option.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A Server object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.protos">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">protos</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protobuf_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.protos" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a module generated by the indicated .proto file.</p>
+<p>THIS IS AN EXPERIMENTAL API.</p>
+<p>Use this function to retrieve classes corresponding to message
+definitions in the .proto file.</p>
+<p>To inspect the contents of the returned module, use the dir function.
+For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">protos</span> <span class="pre">=</span> <span class="pre">grpc.protos(&quot;foo.proto&quot;)</span>
+<span class="pre">print(dir(protos))</span>
+<span class="pre">`</span></code></p>
+<p>The returned module object corresponds to the _pb2.py file generated
+by protoc. The path is expected to be relative to an entry on sys.path
+and all transitive dependencies of the file should also be resolveable
+from an entry on sys.path.</p>
+<p>To completely disable the machinery behind this function, set the
+GRPC_PYTHON_DISABLE_DYNAMIC_STUBS environment variable to “true”.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>protobuf_path: The path to the .proto file on the filesystem. This path</dt><dd><p>must be resolveable from an entry on sys.path and so must all of its
+transitive dependencies.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A module object corresponding to the message code for the indicated
+.proto file. Equivalent to a generated _pb2.py file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.services">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">services</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protobuf_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a module generated by the indicated .proto file.</p>
+<p>THIS IS AN EXPERIMENTAL API.</p>
+<p>Use this function to retrieve classes and functions corresponding to
+service definitions in the .proto file, including both stub and servicer
+definitions.</p>
+<p>To inspect the contents of the returned module, use the dir function.
+For example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">`</span>
+<span class="pre">services</span> <span class="pre">=</span> <span class="pre">grpc.services(&quot;foo.proto&quot;)</span>
+<span class="pre">print(dir(services))</span>
+<span class="pre">`</span></code></p>
+<p>The returned module object corresponds to the _pb2_grpc.py file generated
+by protoc. The path is expected to be relative to an entry on sys.path
+and all transitive dependencies of the file should also be resolveable
+from an entry on sys.path.</p>
+<p>To completely disable the machinery behind this function, set the
+GRPC_PYTHON_DISABLE_DYNAMIC_STUBS environment variable to “true”.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>protobuf_path: The path to the .proto file on the filesystem. This path</dt><dd><p>must be resolveable from an entry on sys.path and so must all of its
+transitive dependencies.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A module object corresponding to the stub/service code for the indicated
+.proto file. Equivalent to a generated _pb2_grpc.py file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.protos_and_services">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">protos_and_services</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">protobuf_path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.protos_and_services" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a 2-tuple of modules corresponding to protos and services.</p>
+<p>THIS IS AN EXPERIMENTAL API.</p>
+<p>The return value of this function is equivalent to a call to protos and a
+call to services.</p>
+<p>To completely disable the machinery behind this function, set the
+GRPC_PYTHON_DISABLE_DYNAMIC_STUBS environment variable to “true”.</p>
+<dl class="simple">
+<dt>Args:</dt><dd><dl class="simple">
+<dt>protobuf_path: The path to the .proto file on the filesystem. This path</dt><dd><p>must be resolveable from an entry on sys.path and so must all of its
+transitive dependencies.</p>
+</dd>
+</dl>
+</dd>
+<dt>Returns:</dt><dd><p>A 2-tuple of module objects corresponding to (protos(path), services(path)).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.xds_channel_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">xds_channel_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fallback_credentials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.xds_channel_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates a ChannelCredentials for use with xDS. This is an EXPERIMENTAL</dt><dd><p>API.</p>
+</dd>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>fallback_credentials: Credentials to use in case it is not possible to</dt><dd><p>establish a secure connection via xDS. If no fallback_credentials
+argument is supplied, a default SSLChannelCredentials is used.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.xds_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">xds_server_credentials</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fallback_credentials</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.xds_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates a ServerCredentials for use with xDS. This is an EXPERIMENTAL</dt><dd><p>API.</p>
+</dd>
+<dt>Args:</dt><dd><dl class="simple">
+<dt>fallback_credentials: Credentials to use in case it is not possible to</dt><dd><p>establish a secure connection via xDS. No default value is provided.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="jina.clients.base.grpc.insecure_server_credentials">
+<code class="sig-prename descclassname"><span class="pre">jina.clients.base.grpc.</span></code><code class="sig-name descname"><span class="pre">insecure_server_credentials</span></code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#jina.clients.base.grpc.insecure_server_credentials" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Creates a credentials object directing the server to use no credentials.</dt><dd><p>This is an EXPERIMENTAL API.</p>
+</dd>
+</dl>
+<p>This object cannot be used directly in a call to <cite>add_secure_port</cite>.
+Instead, it should be used to construct other credentials objects, e.g.
+with xds_server_credentials.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        
+        <a href="../jina.clients.base.http/" class="btn btn-neutral float-right" title="jina.clients.base.http"
+           accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        
+        
+        <a href="../jina.clients.base/" class="btn btn-neutral float-left" title="jina.clients.base"
+           accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        
+    </div>
+    
+
+    <hr/>
+
+    <div role="contentinfo">
+        <nav class="devsite-footer-linkboxes nocontent" aria-label="Footer links">
+
+            <ul class="devsite-footer-linkboxes-list">
+
+                <li class="devsite-footer-linkbox ">
+                    <h3 class="devsite-footer-linkbox-heading no-link">Stay connected</h3>
+                    <ul class="devsite-footer-linkbox-list">
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://github.com/jina-ai/jina" class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 2)">
+
+                                <i class="fab fa-github"></i> GitHub
+
+                            </a>
+
+                        </li>
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://www.linkedin.com/company/jinaai/" class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 1)">
+
+                                <i class="fab fa-linkedin"></i> LinkedIn
+
+                            </a>
+
+                        </li>
+
+
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://twitter.com/JinaAI_" class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 3)">
+
+                                <i class="fab fa-twitter"></i> Twitter
+
+                            </a>
+
+                        </li>
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://www.youtube.com/c/JinaAI" class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 4)">
+
+                                <i class="fab fa-youtube"></i> YouTube
+
+                            </a>
+
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="devsite-footer-linkbox ">
+                    <h3 class="devsite-footer-linkbox-heading no-link">Support</h3>
+                    <ul class="devsite-footer-linkbox-list">
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://slack.jina.ai"
+                               class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 3)">
+
+                                <i class="fab fa-slack"></i> Slack community
+
+                            </a>
+
+                        </li>
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://github.com/jina-ai/jina/issues"
+                               class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 1)">
+
+                                Issue tracker
+
+                            </a>
+
+                        </li>
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://github.com/jina-ai/jina/blob/master/CHANGELOG.md"
+                               class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 2)">
+
+                                Release notes
+
+                            </a>
+
+                        </li>
+
+
+
+                        <li class="devsite-footer-linkbox-item">
+
+                            <a href="https://career.jina.ai"
+                               class="devsite-footer-linkbox-link gc-analytics-event"
+                               data-category="Site-Wide Custom Events" data-label="Footer Link (index 4)">
+
+                                Career@Jina AI
+
+                            </a>
+
+                        </li>
+
+
+                    </ul>
+                </li>
+
+            </ul>
+
+        </nav>
+        <p>
+            
+            &copy; Copyright Jina AI Limited. All rights reserved.
+            <span class="lastupdated">
+        Last updated on Aug 10, 2021.
+      </span>
+
+        </p>
+    </div> 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+
+      function showhide_navbar() {
+      var x = document.getElementsByClassName("wy-nav-side")[0];
+      var y = document.getElementsByClassName("wy-nav-content-wrap")[0];
+      var z = document.getElementById("showhide-navbar-btn");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+        y.style.marginLeft = "300px";
+        z.style.left = "300px";
+      } else {
+        x.style.display = "none";
+        y.style.marginLeft = "0";
+        z.style.left = "0px";
+      }
+    }
+
+  </script>
+
+  <!-- Search box becomes active when you press the slash(/) key anywhere on the page-->
+  <script>
+    const body = document.querySelector('body');
+    const searchBox = document.querySelector('form').querySelector('input[type="text"]');
+
+    body.addEventListener('keyup', event => {
+      event.preventDefault()
+      if (event.key === '/') {
+        searchBox.focus();
+      }
+    });
+  </script>
+
+  
+  
+    
+    <!-- Theme Analytics -->
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-164627626-3', 'auto');
+    ga('send', 'pageview');
+    </script>
+
+    
+   
+
+</body>
+</html>

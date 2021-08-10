@@ -1,0 +1,15 @@
+jina.math 
+==========
+
+
+.. toctree::
+
+   jina.math.dimensionality_reduction
+   jina.math.distance
+   jina.math.helper
+
+.. automodule:: jina.math
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

@@ -1,0 +1,19 @@
+jina.peapods.runtimes.gateway 
+==============================
+
+.. toctree::
+
+   jina.peapods.runtimes.gateway.grpc
+   jina.peapods.runtimes.gateway.http
+   jina.peapods.runtimes.gateway.websocket
+
+
+.. toctree::
+
+   jina.peapods.runtimes.gateway.prefetch
+
+.. automodule:: jina.peapods.runtimes.gateway
+   :members:
+   :undoc-members:
+   :show-inheritance:
+

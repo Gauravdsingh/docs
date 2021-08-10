@@ -1,0 +1,7 @@
+daemon.api.endpoints.workspaces 
+================================
+
+.. automodule:: daemon.api.endpoints.workspaces
+   :members:
+   :undoc-members:
+   :show-inheritance:

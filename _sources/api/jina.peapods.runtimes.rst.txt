@@ -3,10 +3,10 @@ jina.peapods.runtimes
 
 .. toctree::
 
-   jina.peapods.runtimes.asyncio
    jina.peapods.runtimes.container
+   jina.peapods.runtimes.gateway
    jina.peapods.runtimes.jinad
-   jina.peapods.runtimes.ssh
+   jina.peapods.runtimes.request_handlers
    jina.peapods.runtimes.zmq
 
 
